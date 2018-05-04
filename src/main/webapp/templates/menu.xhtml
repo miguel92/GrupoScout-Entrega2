@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition>
+        <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-scout">
+            <a class="navbar-brand enlace offset-md-2" href="index.xhtml"><img src="resources/icons/icono.png" width="35px"></img> Santo Angel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse col-md-7" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a id="seccion" class="nav-link" href="seccion.xhtml"><i class="fas fa-child" style="margin-right: 10px"></i>Secciones <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Eventos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Nuestro Grupo
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Ubicación</a>
+                            <a class="dropdown-item" href="#">ASDE</a>
+                            <a class="dropdown-item" href="#">Colegio</a>
+                            <a class="dropdown-item" href="#">Información</a>
+                        </div>
+                    </li>
+                        
+                </ul>
+   
+             <form class="offset-md-2">
+                 <button type="button" class="btn bg-scout btn_menus" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-user"></i> Login</button>
+                 <button class="btn bg-scout my-2 my-sm-0 btn_menus" type="submit"><i class="fas fa-sign-in-alt"></i> Registrarse</button>
+             </form>
+            </div>
+            
+        </nav>
+    </ui:composition>
+</html>
+
