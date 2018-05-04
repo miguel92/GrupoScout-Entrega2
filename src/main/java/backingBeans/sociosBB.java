@@ -19,7 +19,9 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class sociosBB {
     
+    private Long sigId = Long.parseLong("1");
     private List<Socio> socios;
+    private Socio socio = new Socio();
 
     /**
      * Creates a new instance of sociosBB
@@ -27,12 +29,12 @@ public class sociosBB {
     public sociosBB() {
         socios = new ArrayList<Socio>();
         Socio soc = new Socio();
-        soc.setId_Socio(Long.parseLong("1"));
+        soc.setId_Socio(sigId++);
         soc.setNombre("Juan");
         soc.setApellidos("Truño");
         socios.add(soc);
         soc = new Socio();
-        soc.setId_Socio(Long.parseLong("2"));
+        soc.setId_Socio(sigId++);
         soc.setNombre("Loles");
         soc.setApellidos("Lelos");
         socios.add(soc);
@@ -45,6 +47,20 @@ public class sociosBB {
     public void setSocios(List<Socio> socios) {
         this.socios = socios;
     }
+
+    public Socio getSocio() {
+        return socio;
+    }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
     
+    public String createSocio(){
+        socio.setId_Socio(sigId++);
+        socios.add(socio);
+        socio = new Socio();
+        return "sociosLista.xhtml";
+    }
     
 }

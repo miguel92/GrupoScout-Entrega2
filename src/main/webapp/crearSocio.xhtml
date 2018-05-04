@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <ui:composition template="templates/mainAdmin.xhtml">
+        <ui:define name="title">
+            Crear socio
+        </ui:define>
+        <ui:define name="titulo_modulo">
+            Crear socio
+        </ui:define>
+        <ui:define name="contenido">
+            <h:form id="formCrearSocio">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputNombre">Nombre</h:outputLabel>
+                        <h:inputText a:type="text" value="#{sociosBB.socio.nombre}" class="form-control" id="inputNombre" a:placeholder="Nombre"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputApellidos">Apellidos</h:outputLabel>
+                        <h:inputText a:type="text" value="#{sociosBB.socio.apellidos}" class="form-control" id="inputApellidos" a:placeholder="Apellidos"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputDNI">DNI</h:outputLabel>
+                        <h:inputText a:type="text" class="form-control" id="inputDNI" a:placeholder="DNI"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputAlias">Alias</h:outputLabel>
+                        <h:inputText a:type="text" class="form-control" id="inputAlias" a:placeholder="Alias"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputEmail">Email</h:outputLabel>
+                        <h:inputText a:type="text" class="form-control" id="inputEmail" a:placeholder="Email"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputSexo">Sexo</h:outputLabel>
+                        <h:selectOneMenu id="inputSexo" class="form-control">
+                            <f:selectItem itemLabel="Hombre"/>
+                            <f:selectItem itemLabel="Mujer"/>
+                        </h:selectOneMenu>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputFechaNacimiento">Fecha de Nacimiento</h:outputLabel>
+                        <h:inputText a:type="date" class="form-control" id="inputFechaNacimiento" a:placeholder="DD/MM/AAAA"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputTlfn">Teléfono</h:outputLabel>
+                        <h:inputText a:type="number" maxlength="12" class="form-control" id="inputTlfn" a:placeholder="952343434"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputTlfnMovil">Teléfono Móvil</h:outputLabel>
+                        <h:inputText a:type="number" maxlength="12" class="form-control" id="inputTlfnMovil" a:placeholder="679123123"/>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputDireccion">Dirección</h:outputLabel>
+                        <h:inputText a:type="text" class="form-control" id="inputDireccion" a:placeholder="1234 Main St"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputCiudad">Ciudad</h:outputLabel>
+                        <h:inputText a:type="text" class="form-control" id="inputCiudad" a:placeholder="Málaga"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputCodPostal">Codigo Postal</h:outputLabel>
+                        <h:inputText a:type="number" maxlength="5" class="form-control" id="inputCodPostal"/>
+                    </div>
+                </div>
+                <h:commandButton action="#{sociosBB.createSocio()}" class="btn btn-primary" value="Crear"/>
+            </h:form>
+
+                    
+                    
+<!--            <h:form id="formCrearSocio">
+                <h:panelGrid columns="4" cellpadding="5px"  >
+                    <h:outputLabel for="id_socio">Identificador*</h:outputLabel>
+                    <h:inputText id="id_socio" required="true"></h:inputText>                    
+                    
+                    <h:outputLabel for="nombre">Nombre*</h:outputLabel>
+                    <h:inputText id="nombre" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="apellidos">Apellidos*</h:outputLabel>
+                    <h:inputText id="apellidos" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="fechaNacimiento">Fecha Nacimiento*</h:outputLabel>
+                    <h:inputText id="fechaNacimiento" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="sexo">Sexo*</h:outputLabel>
+                    <h:selectOneMenu id="sexo" required="true">
+                        <f:selectItem itemLabel="Hombre"/>
+                        <f:selectItem itemLabel="Mujer"/>                        
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel for="direccion">Dirección*</h:outputLabel>
+                    <h:inputText id="direccion" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="telefono">Teléfono*</h:outputLabel>
+                    <h:inputText id="telefono" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="tlfnMovil">Teléfono Móvil*</h:outputLabel>
+                    <h:inputText id="tlfnMovil" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="localizacion">Localización*</h:outputLabel>
+                    <h:inputText id="localizacion" required="true"></h:inputText>
+                    
+                    <h:outputLabel for="dni">DNI</h:outputLabel>
+                    <h:inputText id="dni"></h:inputText>
+                    
+                    <h:outputLabel for="grupo">Grupo</h:outputLabel>
+                    <h:inputText id="grupo"></h:inputText>
+                    
+                    
+                    <h:outputLabel for="cargo">Cargo</h:outputLabel>
+                    <h:inputText id="cargo"></h:inputText>
+                    
+                    <h:outputLabel for="ambito">Ámbito</h:outputLabel>
+                    <h:inputText id="ambito"></h:inputText>
+                    
+                    <h:outputLabel for="perfil">Perfil</h:outputLabel>
+                    <h:selectOneMenu id="perfil" required="true">
+                        <f:selectItem itemLabel="Administrador"/>
+                        <f:selectItem itemLabel="Scouter"/>                        
+                        <f:selectItem itemLabel="Educando"/>                        
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:messages style="color: red"/>
+                <h:commandButton action="#{sociosBB.createSocio(document.getElementById('id_socio').value, document.getElementById('nombre').value, document.getElementById('apellidos').value)}" class="btn-primary" value="Crear"></h:commandButton>
+            </h:form>-->
+
+        </ui:define>
+    </ui:composition>
+</html>
+
