@@ -19,6 +19,11 @@
                     <li class="nav-item">
                         <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Eventos</a>
                     </li>
+                    <c:if test="#{!empty controlAutorizacion.socio}">
+                        <li class="nav-item">
+                            <h:link id="misdatos" class="nav-link" outcome="datosUsuario.xhtml"><i class="fas fa-user" style="margin-right: 10px"></i> Mis Datos</h:link>
+                        </li>
+                    </c:if>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nuestro Grupo

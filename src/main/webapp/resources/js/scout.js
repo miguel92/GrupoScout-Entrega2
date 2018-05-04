@@ -3,14 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function enlaceActivo(){
-       url = $(location).attr('pathname');
-       indice = url.lastIndexOf("/");
-       cadena = url.substring(indice+1,url.length-6);
-       $("#"+cadena).toggleClass("active");
+function enlaceActivo() {
+    url = $(location).attr('pathname');
+    indice = url.lastIndexOf("/");
+    cadena = url.substring(indice + 1, url.length - 6);
+    $("#" + cadena).toggleClass("active");
+}
+function btnEditarUsuario() {
+    $("#editar_MisDatos").click(function (evt) {
+        evt.preventDefault();
+        $("#formMisDatos\\:nombreUsuario").removeAttr("disabled");
+        $("#formMisDatos\\:apellidosUsuario").removeAttr("disabled");
+        $("#formMisDatos\\:direccionUsuario").removeAttr("disabled");
+        $("#formMisDatos\\:telefonoUsuario").removeAttr("disabled");
+        $("#formMisDatos\\:movilUsuario").removeAttr("disabled");
+        $("#formMisDatos\\:sexoUsuario").removeAttr("disabled");
+    });
 }
 
-$( document ).ready(function() {
-  // Handler for .ready() called.
+$(document).ready(function () {
+    // Handler for .ready() called.
     enlaceActivo();
+    btnEditarUsuario();
 });

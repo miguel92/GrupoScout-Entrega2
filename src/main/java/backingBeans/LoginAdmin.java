@@ -7,8 +7,6 @@ package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Socio;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -20,9 +18,9 @@ import javax.inject.Inject;
  *
  * @author migue
  */
-@Named(value = "login")
+@Named(value = "loginAdmin")
 @RequestScoped
-public class Login {
+public class LoginAdmin {
 
     /**
      * Creates a new instance of Login
@@ -30,23 +28,20 @@ public class Login {
     private String correo;
     private String password;
     private List<Socio> lista_usuarios;
-    
+
     @Inject
     private ControlAutorizacion ctrl;
+
     /*
     @Inject // inyectamos la dependencia
     private SessionUtils session;*/
-    
-    public Login() {
-        lista_usuarios = new ArrayList<Socio>();
+
+    public LoginAdmin() {
+        lista_usuarios = new ArrayList<>();
         Socio u1 = new Socio();
         u1.setEmail("edu@correo.com");
         u1.setPass("1234");
         u1.setPerfil("EDU");
-        u1.setNombre("Manuel");
-        u1.setSexo(true);
-        u1.setFecha_nacimiento(new Date(1992,04,19));
-        
         Socio u2 = new Socio();
         u2.setEmail("scouter@correo.com");
         u2.setPass("oye");
@@ -83,33 +78,36 @@ public class Login {
     public void setLista_usuarios(List<Socio> lista_usuarios) {
         this.lista_usuarios = lista_usuarios;
     }
-    
-        public String autenticar() {
+
+    public String autenticar() {
         // Implementar este método
         int contador = 0;
         boolean encontrado = false;
         Socio user1 = null;
         String cadena = null;
         FacesContext ctx = FacesContext.getCurrentInstance();
-        
-        while(contador < lista_usuarios.size() && !encontrado){
+
+        while (contador < lista_usuarios.size() && !encontrado) {
             user1 = lista_usuarios.get(contador);
             encontrado = user1.getEmail().equalsIgnoreCase(correo);
             contador++;
         }
-        
-        if(!encontrado){
+
+        if (!encontrado) {
             ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "El usuario no existe", "El usuario no existe"));
-        }else{
-            if(user1.getPass().equals(password)){
-                //session.add("Usuarios Logeado", user1);
-                ctrl.setUsuario(user1);
-                cadena = "index.xhtml";
-            }else{
+        } else {
+            if (user1.getPass().equals(password)) {
+                if (user1.getPerfil().equals("SCOUT") || user1.getPerfil().equals("ROOT")) {
+                    ctrl.setUsuario(user1);
+                    cadena = "mainAdmin.xhtml";
+                } else {
+                    ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No tienes permisos para acceder a esta zona", "No tienes permisos para acceder a esta zona"));
+                }
+            } else {
                 ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "La contraseña no es válida", "La contraseña no es válida"));
             }
         }
-        
+
         return cadena;
     }
 }
