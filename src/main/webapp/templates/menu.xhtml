@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <ui:composition>
         <nav id="menu_principal" class="navbar navbar-expand-lg navbar-light bg-scout">
             <a class="navbar-brand enlace offset-md-2" href="index.xhtml"><img src="resources/icons/icono.png" width="35px"></img> Santo Angel</a>
@@ -18,6 +19,11 @@
                     <li class="nav-item">
                         <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Eventos</a>
                     </li>
+                    <c:if test="#{!empty controlAutorizacion.socio}">
+                        <li class="nav-item">
+                            <h:link id="misdatos" class="nav-link" outcome="datosUsuario.xhtml"><i class="fas fa-user" style="margin-right: 10px"></i> Mis Datos</h:link>
+                        </li>
+                    </c:if>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Nuestro Grupo
@@ -29,15 +35,21 @@
                             <a class="dropdown-item" href="#">Información</a>
                         </div>
                     </li>
-                        
+
                 </ul>
-   
-             <form class="offset-md-2">
-                 <button type="button" class="btn bg-scout btn_menus" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-user"></i> Login</button>
-                 <button class="btn bg-scout my-2 my-sm-0 btn_menus" type="submit"><i class="fas fa-sign-in-alt"></i> Registrarse</button>
-             </form>
+                <c:if test="#{empty controlAutorizacion.socio}">
+                    <form class="offset-md-2">
+                        <button type="button" class="btn bg-scout btn_menus" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-user"></i> Login</button>
+                        <button class="btn bg-scout my-2 my-sm-0 btn_menus" type="submit"><i class="fas fa-sign-in-alt"></i> Registrarse</button>
+                    </form>
+                </c:if>
+                <c:if test="#{!empty controlAutorizacion.socio}">
+                    <h:form>
+                        <h:commandLink action="#{controlAutorizacion.logout()}" class="btn btn-secondary float-right"><i class="fas fa-sign-out-alt"></i> Salir </h:commandLink>
+                    </h:form>
+                </c:if>
             </div>
-            
+
         </nav>
     </ui:composition>
 </html>
