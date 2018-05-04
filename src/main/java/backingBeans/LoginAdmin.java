@@ -99,7 +99,7 @@ public class LoginAdmin {
             if (user1.getPass().equals(password)) {
                 if (user1.getPerfil().equals("SCOUT") || user1.getPerfil().equals("ROOT")) {
                     ctrl.setUsuario(user1);
-                    cadena = "mainAdmin.xhtml";
+                    cadena = "indexAdmin.xhtml";
                 } else {
                     ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No tienes permisos para acceder a esta zona", "No tienes permisos para acceder a esta zona"));
                 }

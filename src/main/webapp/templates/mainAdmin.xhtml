@@ -22,43 +22,14 @@
                         <h4 class="titulo3">Grupo Scout 39</h4>
                         <h4 class="titulo3">Santo Ángel</h4>
                         <h5 class="titulo4">Administración</h5>
-<<<<<<< HEAD:src/main/webapp/mainAdmin.xhtml
-=======
-                        <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>
+
+                        <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT'}">
+                            <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>
                             <div class="collapse" id="menu1" data-parent="#sidebar">
                                 <a href="#" class="list-group-item" data-parent="#menu1">Lista de Socios</a>
                                 <a href="#" class="list-group-item" data-parent="#menu1">Crear Socio</a>
                                 <a href="#" class="list-group-item" data-parent="#menu1">Modificar Socio</a>
                             </div>
-                        <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
-                        <div class="collapse" id="menu2" data-parent="#sidebar">
-                            <a href="#" class="list-group-item" data-parent="#menu2">3.1</a>
-                            <a href="#menu3sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">3.2 </a>
-                            <div class="collapse" id="menu3sub2">
-                                <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 a</a>
-                                <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 b</a>
-                                <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 c</a>
-                            </div>
-                            <a href="#" class="list-group-item" data-parent="#menu3">3.3</a>
-                        </div>
-                        <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Cuotas </span></a> 
-                        <a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Ingresos y gastos   </span></a> 
-                        <a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Documentos   </span></a> 
-                        <div class="collapse" id="menu5" data-parent="#sidebar">
-                            <a href="#" class="list-group-item" data-parent="#menu5">Documentos Educandos</a>
-                            <a href="#" class="list-group-item" data-parent="#menu5">Plantillas de Documentos</a>
-                            <a href="#" class="list-group-item" data-parent="#menu5">Campos de Documentos</a>
-                        </div>
-                        <a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Entradas Calendario </span></a>
-                        <a href="#menu7" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Pagos </span></a> 
-                        <a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Presupuestos </span></a> 
-                        <a href="#menu9" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Secciones </span></a> 
-
-
->>>>>>> Borja:src/main/webapp/templates/mainAdmin.xhtml
-
-                        <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT'}">
-                            <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>     
                             <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
                             <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Cuotas </span></a> 
                             <a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Ingresos y gastos   </span></a> 
@@ -75,6 +46,9 @@
                         </c:if>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
                             <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>     
+                             <div class="collapse" id="menu1" data-parent="#sidebar">
+                                <a href="#" class="list-group-item" data-parent="#menu1">Lista de Socios</a>
+                            </div>
                             <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
                             <a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Documentos   </span></a> 
                             <div class="collapse" id="menu5" data-parent="#sidebar">
