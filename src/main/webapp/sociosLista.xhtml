@@ -13,15 +13,22 @@
         </ui:define>
         <ui:define name="contenido">
             <h:form style="min-height: 55px">
-                <h:commandLink action="crearSocio.xhtml" class="btn btn-success float-right"><i class="fas fa-plus"></i> Crear</h:commandLink>
+                <h:commandLink action="#{sociosBB.newSocio()}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Crear</h:commandLink>
             </h:form>
             
             <h:dataTable id="socioLista" value="#{sociosBB.getSocios()}" var="soc" class="table">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Identificador"/>
+                        <h:outputText value="Identificador ASDE"/>
                     </f:facet>
                     <h:outputText value="#{soc.id_Socio}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Identificador Interno"/>
+                    </f:facet>
+                    <h:outputText value="#{soc.id_Usuario}"/>
                 </h:column>
 
                 <h:column>
@@ -40,26 +47,12 @@
                 
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="fechaNacimiento"/>
-                    </f:facet>
-                    <h:outputText value="#{soc.fecha_nacimiento}"><f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText>
-                </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="fechaIngreso"/>
-                    </f:facet>
-                    <h:outputText value="#{soc.fecha_ingreso}"><f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText>
-                </h:column>
-
-                <h:column>
-                    <f:facet name="header">
                         <h:outputText value="Acciones"/>
                     </f:facet>
                     <h:form>
                         <h:commandLink action="#{sociosBB.readSocio(soc)}"><i class="fas fa-eye"></i></h:commandLink>
                         &nbsp;
-                        <h:commandLink action="#{sociosBB.buscarSocio(soc)}"><i class="fas fa-edit"></i></h:commandLink>
+                        <h:commandLink action="#{sociosBB.updateSocio(soc)}"><i class="fas fa-edit"></i></h:commandLink>
                         &nbsp;
                         <h:commandLink action="#{sociosBB.deleteSocio(soc)}"><i class="far fa-trash-alt"></i></h:commandLink>
                         &nbsp;

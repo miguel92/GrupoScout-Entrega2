@@ -31,6 +31,8 @@ public class Usuario implements Serializable {
     private String pass;
     @Column(name = "email", nullable = false, length=50)
     private String email;
+    @Column(name = "perfil", nullable = false, length=30)
+    private String perfil;
 
     public String getPass() {
         return pass;
@@ -56,6 +58,14 @@ public class Usuario implements Serializable {
 
     public void setId_Usuario(Long id) {
         this.id_Usuario = id;
+    }
+    
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
     @Override
