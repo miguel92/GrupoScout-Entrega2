@@ -6,7 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:composition template="templates/mainAdmin.xhtml">
         <ui:define name="title">
-            Socio
+            Lista de Socios
         </ui:define>
         <ui:define name="titulo_modulo">
             Lista de socios
@@ -21,21 +21,35 @@
                     <f:facet name="header">
                         <h:outputText value="Identificador"/>
                     </f:facet>
-                    <h:outputText value="#{soc.getId_Socio()}"/>
+                    <h:outputText value="#{soc.id_Socio}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Nombre"/>
                     </f:facet>
-                    <h:outputText value="#{soc.getNombre()}"/>
+                    <h:outputText value="#{soc.nombre}"/>
                 </h:column>
 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Apellido"/>
                     </f:facet>
-                    <h:outputText value="#{soc.getApellidos()}"/>
+                    <h:outputText value="#{soc.apellidos}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="fechaNacimiento"/>
+                    </f:facet>
+                    <h:outputText value="#{soc.fecha_nacimiento}"><f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="fechaIngreso"/>
+                    </f:facet>
+                    <h:outputText value="#{soc.fecha_ingreso}"><f:convertDateTime pattern="dd-MM-yyyy"/></h:outputText>
                 </h:column>
 
                 <h:column>
@@ -43,11 +57,11 @@
                         <h:outputText value="Acciones"/>
                     </f:facet>
                     <h:form>
-                        <h:commandLink action="sociosLista.xhtml"><i class="fas fa-eye"></i></h:commandLink>
+                        <h:commandLink action="#{sociosBB.readSocio(soc)}"><i class="fas fa-eye"></i></h:commandLink>
                         &nbsp;
-                        <h:commandLink action="sociosLista.xhtml"><i class="fas fa-edit"></i></h:commandLink>
+                        <h:commandLink action="#{sociosBB.buscarSocio(soc)}"><i class="fas fa-edit"></i></h:commandLink>
                         &nbsp;
-                        <h:commandLink action="sociosLista.xhtml"><i class="far fa-trash-alt"></i></h:commandLink>
+                        <h:commandLink action="#{sociosBB.deleteSocio(soc)}"><i class="far fa-trash-alt"></i></h:commandLink>
                         &nbsp;
                     </h:form>
                 </h:column>
