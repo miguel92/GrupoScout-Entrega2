@@ -20,9 +20,16 @@ function btnEditarUsuario() {
         $("#formMisDatos\\:sexoUsuario").removeAttr("disabled");
     });
 }
+function lateralActivo() {
+    url = $(location).attr('pathname');
+    indice = url.lastIndexOf("/");
+    cadena = url.substring(indice + 1, url.length - 6);
+    $("#lateral" + cadena).toggleClass("active");
+}
 
 $(document).ready(function () {
     // Handler for .ready() called.
     enlaceActivo();
     btnEditarUsuario();
+    lateralActivo();
 });
