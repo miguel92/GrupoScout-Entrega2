@@ -6,7 +6,10 @@
 package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Socio;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -32,6 +35,17 @@ public class sociosBB {
         soc.setId_Socio(sigId++);
         soc.setNombre("Juan");
         soc.setApellidos("Truño");
+        soc.setDni("12345678");
+        soc.setEmail("HansTheMan@correo.com");
+        soc.setDireccion("Calle de Atrás, N1, 1ºB. Madrid, 10101");
+        soc.setSexo(true);
+        soc.setTelefono(952121212);
+        soc.setTelefono_movil(650121212);
+        soc.setPerfil("Scouter");
+        soc.setGrupo("Clan");
+        soc.setAmbito("Federal");
+        soc.setFecha_nacimiento(Date.valueOf("1994-02-13"));
+        soc.setFecha_ingreso(Date.valueOf(LocalDate.now()));
         socios.add(soc);
         soc = new Socio();
         soc.setId_Socio(sigId++);
@@ -58,9 +72,40 @@ public class sociosBB {
     
     public String createSocio(){
         socio.setId_Socio(sigId++);
+        socio.setFecha_ingreso(Date.valueOf(LocalDate.now()));
         socios.add(socio);
         socio = new Socio();
         return "sociosLista.xhtml";
     }
     
+    public String updateSocio(){
+        socios.add(socio);
+        socio = new Socio();
+        return "sociosLista.xhtml";
+    }
+    
+    public String buscarSocio(Socio soc){
+        socio = soc;
+        return "modificarSocio.xhtml";
+    }
+    
+    public String readSocio(Socio soc){
+        socio = soc;
+        return "consultarSocio.xhtml";
+    }
+    
+    public String deleteSocio(Socio soc){
+        boolean borrado = false;
+        int i = 0;
+        while(!borrado && i < socios.size()){
+            if(socios.get(i).getId_Socio().compareTo(soc.getId_Socio())==0){
+                socios.remove(i);
+                borrado=true;
+            }
+            i++;
+        }
+
+        socio = new Socio();
+        return "sociosLista.xhtml";
+    }
 }
