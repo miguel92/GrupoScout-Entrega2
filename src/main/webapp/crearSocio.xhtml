@@ -30,20 +30,21 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <h:outputLabel for="inputAlias">Alias *</h:outputLabel>
-                        <h:inputText a:type="text" value="#{sociosBB.socio.id_Usuario}" class="form-control" id="inputAlias" a:required="true" a:placeholder="Alias"/>
-                    </div>
-                    <div class="form-group col-md-4">
                         <h:outputLabel for="inputEmail">Email *</h:outputLabel>
                         <h:inputText a:type="text" value="#{sociosBB.socio.email}" class="form-control" id="inputEmail" a:required="true" a:placeholder="Email"/>
                     </div>
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputSexo">Sexo *</h:outputLabel>
-                        <h:selectOneMenu id="inputSexo" value="#{sociosBB.socio.sexo}" class="form-control">
-                            <f:selectItem itemLabel="Elegir"/>
-                            <f:selectItem itemLabel="Hombre"/>
-                            <f:selectItem itemLabel="Mujer"/>
+                        <h:selectOneMenu id="inputSexo" value="#{sociosBB.socio.sexo}" required="true" requiredMessage="*Atributo obligatorio*" class="form-control">
+                            <f:selectItem itemLabel="Hombre" itemValue="Hombre"/>
+                            <f:selectItem itemLabel="Mujer" itemValue="Mujer"/>
+                            <f:selectItem itemLabel="Elegir" noSelectionOption="true"/>
                         </h:selectOneMenu>
+                        <h:message for="inputSexo" style="color: red"/>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputFechaNacimiento">Fecha de Nacimiento *</h:outputLabel>
+                        <h:inputText a:type="date" value="#{sociosBB.socio.fecha_nacimiento}" class="form-control" id="inputFechaNacimiento" a:required="true" a:placeholder="DD/MM/AAAA"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
                     </div>
                 </div>
                 <div class="form-group">
@@ -60,36 +61,29 @@
                         <h:inputText a:type="number" maxlength="12" value="#{sociosBB.socio.telefono_movil}" class="form-control" id="inputTlfnMovil" a:required="true" a:placeholder="679123123"/>
                     </div>
                     <div class="form-group col-md-4">
-                        <h:outputLabel for="inputFechaNacimiento">Fecha de Nacimiento *</h:outputLabel>
-                        <h:inputText a:type="date" value="#{sociosBB.socio.fecha_nacimiento}" class="form-control" id="inputFechaNacimiento" a:required="true" a:placeholder="DD/MM/AAAA"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+                        <h:outputLabel for="inputPerfil">Perfil *</h:outputLabel>
+                        <h:selectOneMenu id="inputPerfil" value="#{sociosBB.socio.perfil}" required="true" requiredMessage="*Atributo obligatorio*" class="form-control">
+                            <f:selectItem itemLabel="Administrador" itemValue="Administrador"/>
+                            <f:selectItem itemLabel="Scouter" itemValue="Scouter"/>
+                            <f:selectItem itemLabel="Educando" itemValue="Educando"/>
+                            <f:selectItem itemLabel="Elegir" noSelectionOption="true"/>
+                        </h:selectOneMenu>
+                        <h:message for="inputPerfil" style="color: red"/>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <h:outputLabel for="inputPerfil">Perfil</h:outputLabel>
-                        <h:selectOneMenu id="inputPerfil" value="#{sociosBB.socio.perfil}" class="form-control">
-                            <f:selectItem itemLabel="Administrador"/>
-                            <f:selectItem itemLabel="Scouter"/>
-                            <f:selectItem itemLabel="Educando"/>
-                        </h:selectOneMenu>
-                    </div>
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputGrupo">Grupo</h:outputLabel>
                         <h:selectOneMenu id="inputGrupo" value="#{sociosBB.socio.grupo}" class="form-control">
-                            <f:selectItem itemLabel="Grupo"/>
-                            <f:selectItem itemLabel="Castores"/>
-                            <f:selectItem itemLabel="Manada"/>
-                            <f:selectItem itemLabel="Tropa"/>
-                            <f:selectItem itemLabel="Unidad"/>
-                            <f:selectItem itemLabel="Clan"/>
+                            <f:selectItem itemLabel="Grupo" itemValue="Grupo"/>
+                            <f:selectItem itemLabel="Castores" itemValue="Castores"/>
+                            <f:selectItem itemLabel="Manada" itemValue="Manada"/>
+                            <f:selectItem itemLabel="Tropa" itemValue="Tropa"/>
+                            <f:selectItem itemLabel="Unidad" itemValue="Unidad"/>
+                            <f:selectItem itemLabel="Clan" itemValue="Clan"/>
+                            <f:selectItem itemLabel="Elegir"/>
                         </h:selectOneMenu>
                     </div>
-                    <div class="form-group col-md-4">
-                        <h:outputLabel for="inputLocalizacion">Localización *</h:outputLabel>
-                        <h:inputText a:type="text" value="#{sociosBB.socio.localizacion}" class="form-control" id="inputLocalizacion" a:required="true" a:placeholder="Málaga"/>
-                    </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputCargo">Cargo</h:outputLabel>
                         <h:inputText a:type="text" value="#{sociosBB.socio.cargo}" class="form-control" id="inputCargo"/>
@@ -97,12 +91,15 @@
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputAmbito">Ámbito</h:outputLabel>
                         <h:selectOneMenu id="inputAmbito" value="#{sociosBB.socio.ambito}" class="form-control">
-                            <f:selectItem itemLabel="Federal"/>
-                            <f:selectItem itemLabel="Asociativo"/>
-                            <f:selectItem itemLabel="Provincial"/>
-                            <f:selectItem itemLabel="Grupo"/>
+                            <f:selectItem itemLabel="Federal" itemValue="Federal"/>
+                            <f:selectItem itemLabel="Asociativo" itemValue="Asociativo"/>
+                            <f:selectItem itemLabel="Provincial" itemValue="Provincial"/>
+                            <f:selectItem itemLabel="Grupo" itemValue="Grupo"/>
+                            <f:selectItem itemLabel="Elegir"/>
                         </h:selectOneMenu>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputFechaFirma">Fecha de Firma</h:outputLabel>
                         <h:inputText a:type="date" value="#{sociosBB.socio.fecha_firma}" class="form-control" id="inputFechaFirma"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
