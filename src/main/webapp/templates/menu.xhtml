@@ -14,11 +14,21 @@
             <div class="collapse navbar-collapse col-md-7" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a id="seccion" class="nav-link" href="seccion.xhtml"><i class="fas fa-child" style="margin-right: 10px"></i>Secciones <span class="sr-only">(current)</span></a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSeccion" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-child" style="margin-right: 10px"></i>Secciones <span class="sr-only">(current)</span></a>
+                        
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownSeccion">
+                            <h:form>
+                            <h:commandLink action ="#{seccionesBB.cargarLista('castores')}" class="dropdown-item">Castores</h:commandLink>
+                            <h:commandLink action ="#{seccionesBB.cargarLista('manada')}" class="dropdown-item">Manada</h:commandLink>
+                            <h:commandLink action ="#{seccionesBB.cargarLista('tropa')}" class="dropdown-item">Tropa</h:commandLink>
+                            <h:commandLink action ="#{seccionesBB.cargarLista('unidad')}" class="dropdown-item">Unidad</h:commandLink>
+                            <h:commandLink action ="#{seccionesBB.cargarLista('clan')}" class="dropdown-item">Clan</h:commandLink>
+                            </h:form>
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Eventos</a>
-                    </li>
+                   <!-- <li class="nav-item">
+                        <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Mis Eventos</a>
+                    </li>-->
                     <c:if test="#{!empty controlAutorizacion.socio}">
                         <li class="nav-item">
                             <h:link id="misdatos" class="nav-link" outcome="datosUsuario.xhtml"><i class="fas fa-user" style="margin-right: 10px"></i> Mis Datos</h:link>
@@ -26,7 +36,7 @@
                     </c:if>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Nuestro Grupo
+                           <i class="fas fa-people-carry" style="margin-right: 10px"></i> Nuestro Grupo
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Ubicación</a>

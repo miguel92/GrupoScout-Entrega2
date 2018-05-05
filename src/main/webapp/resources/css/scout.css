@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 .bg-scout{
-   background-color: #622599;
+    background-color: #622599;
 }
 .bg-scout * {
     color:white !important;
@@ -24,8 +24,8 @@ and open the template in the editor.
     background-color: #440976;
 }
 .lista_lateral a {
-   border-right: 3px solid #622599 !important;
-   margin-bottom: 5px;
+    border-right: 3px solid #622599 !important;
+    margin-bottom: 5px;
 }
 .active{
     background-color: #440976;
@@ -39,7 +39,7 @@ and open the template in the editor.
     padding-top: 0px;
 }
 .nav-link{
-   padding: 20px !important;
+    padding: 20px !important;
 }
 .img-fluid{
     margin-bottom: 20px;
@@ -50,14 +50,14 @@ and open the template in the editor.
     font-weight: bold;
 }
 #main_login{
-background: rgba(98,37,153,1);
-background: -moz-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
-background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(98,37,153,1)), color-stop(21%, rgba(98,37,153,1)), color-stop(33%, rgba(120,75,167,1)), color-stop(75%, rgba(195,206,217,1)), color-stop(100%, rgba(195,206,217,1)));
-background: -webkit-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
-background: -o-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
-background: -ms-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
-background: linear-gradient(to bottom, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#622599', endColorstr='#c3ced9', GradientType=0 );
+    background: rgba(98,37,153,1);
+    background: -moz-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(98,37,153,1)), color-stop(21%, rgba(98,37,153,1)), color-stop(33%, rgba(120,75,167,1)), color-stop(75%, rgba(195,206,217,1)), color-stop(100%, rgba(195,206,217,1)));
+    background: -webkit-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
+    background: -o-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
+    background: -ms-linear-gradient(top, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
+    background: linear-gradient(to bottom, rgba(98,37,153,1) 0%, rgba(98,37,153,1) 21%, rgba(120,75,167,1) 33%, rgba(195,206,217,1) 75%, rgba(195,206,217,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#622599', endColorstr='#c3ced9', GradientType=0 );
 }
 #main_login h2, #main_login label{
     color:white;
@@ -71,18 +71,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#622599', end
 }
 /*Estilos para el footer*/
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 body {
-  margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 40px; /* Set the fixed height of the footer here */
-  background-color: #622599;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px; /* Set the fixed height of the footer here */
+    background-color: #622599;
 }
 
 /*Lateral ADmin*/
@@ -139,18 +139,18 @@ body {
 /* level 1*/
 #sidebar .list-group .collapse .list-group-item,
 #sidebar .list-group .collapsing .list-group-item  {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 /* level 2*/
 #sidebar .list-group .collapse > .collapse .list-group-item,
 #sidebar .list-group .collapse > .collapsing .list-group-item {
-  padding-left: 30px;
+    padding-left: 30px;
 }
 
 /* level 3*/
 #sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
-  padding-left: 40px;
+    padding-left: 40px;
 }
 
 @media (max-width:768px) {
@@ -163,13 +163,13 @@ body {
         transform: translateX(-45px);
         position: fixed;
     }
-    
+
     #sidebar.show {
         transform: translateX(0);
     }
 
     #sidebar::-webkit-scrollbar{ width: 0px; }
-    
+
     #sidebar, #sidebar .list-group {
         min-width: 35px;
         overflow: visible;
@@ -193,24 +193,24 @@ body {
 }
 
 .collapse.show {
-  visibility: visible;
+    visibility: visible;
 }
 .collapsing {
-  visibility: visible;
-  height: 0;
+    visibility: visible;
+    height: 0;
 
-  -webkit-transition-property: height, visibility;
-  transition-property: height, visibility;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+    -webkit-transition-property: height, visibility;
+    transition-property: height, visibility;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 .collapsing.width {
-  -webkit-transition-property: width, visibility;
-  transition-property: width, visibility;
-  width: 0;
-  height: 100%;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+    -webkit-transition-property: width, visibility;
+    transition-property: width, visibility;
+    width: 0;
+    height: 100%;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 
 @media (max-width:1373px) {
@@ -223,16 +223,16 @@ body {
 /*Sprites redes sociales*/
 
 .facebook{
-  width: 25px;
-  height: 25px;
-  background: transparent url("../resources/icons/social.png");
-  background-position: -25px 25px;
-  display: inline-block;
-  position: relative;
-  top: 8px;
+    width: 25px;
+    height: 25px;
+    background: transparent url("../resources/icons/social.png");
+    background-position: -25px 25px;
+    display: inline-block;
+    position: relative;
+    top: 8px;
 }
 .facebook:hover{
-  background-position: -25px 0px;
+    background-position: -25px 0px;
 }
 .titulo3,.titulo4{
     text-align: center;
@@ -244,3 +244,37 @@ body {
     color: #ccc;
 }
 
+.titulo_evento{
+    font-family: 'Pacifico', cursive;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 3.2em;
+    margin-bottom: 30px;
+}
+
+.img-redonda{
+    border-radius: 0px 45px !important;
+    box-shadow: 8px 10px #888888;
+    padding:0px;
+}
+.desc_evento{
+    font-size: 1.5em;
+    padding-left: 20px;
+    text-align: justify;
+    color:gray;
+}
+.indicador{
+    font-size: 20px;
+    color:gray;
+}
+.btn-inscribirse{
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    height: 65px;
+    font-size: 1.8em;
+    background-color: red;
+    border-color:gold;
+    font-weight: bold;
+}

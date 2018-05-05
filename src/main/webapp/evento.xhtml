@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="templates/mainLayout.xhtml">
+        <ui:define name="title">
+            Eventos
+        </ui:define>
+        <ui:define name="content">
+
+            <!-- contenido de la página-->
+            <div class="row">
+                <h:panelGroup layout="block">
+                    <h1 class="titulo_evento"><h:outputText value="#{eventoEduBB.evt.getNombre()}" /></h1>
+                </h:panelGroup>
+                
+                <div class="row" style="margin-bottom: 20px;">
+                    <img src="resources/images/pesca.jpg" class="col-md-6 img-fluid img-redonda"></img>
+                    <h:panelGroup layout="block" class="col-md-6">
+                        <p class="desc_evento"><i class="fas fa-angle-left indicador" style="margin-right: 10px"></i> <h:outputText value="#{eventoEduBB.evt.getDescripcion()}" /> <i class="fas fa-angle-right indicador" style="margin-left:3px"></i></p>
+                </h:panelGroup>
+                </div>
+
+                <div class="col-md-12" style="margin-bottom: 20px;">
+                    <h1 class="titulo_evento">¿Dónde es el evento?</h1>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51283.61911002793!2d-4.648360612920107!3d36.548658658241294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72e23e102ffa23%3A0x2058dc519b1962f4!2s29640+Fuengirola%2C+M%C3%A1laga!5e0!3m2!1ses!2ses!4v1525542515562" width="600" height="450" frameborder="0" style="border:0;margin:0 auto; width: 100%" allowfullscreen="true"></iframe>
+                </div>
+               <div class="col-md-12">
+                    <h1 class="titulo_evento">¿Quieres venir? ¡Inscríbete!</h1>
+                    <h:commandButton value="Inscribirme" class="btn btn-lg btn-primary btn-inscribirse"></h:commandButton>
+                </div>
+            </div>
+            <h:form>
+            </h:form>
+        </ui:define>
+
+    </ui:composition>
+
+</html>
+

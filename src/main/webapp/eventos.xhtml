@@ -10,8 +10,10 @@
         <ui:define name="content">
             <h:form>
                 <!-- contenido de la página-->
+                <h1><h:outputText value="#{seccionesBB.seccion}" style=" text-transform: capitalize;"></h:outputText></h1>
+                <h:commandLink action="#{eventoEduBB.mostrarEvento('1')}" class="btn btn-danger"><i class="fas fa-eye" style="margin-right: 10px;"></i> Ver Evento</h:commandLink>
                 <div>
-                    <img src="resources/images/foto.jpg" class="img-fluid img-thumbnail"></img>
+                    
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut nunc varius, ullamcorper est vitae, mollis dui. Nunc nec mi in neque rhoncus tincidunt eu in magna. Ut orci orci, iaculis eu vehicula ut, rutrum quis arcu. Vestibulum dictum lectus sit amet sagittis facilisis. Suspendisse tincidunt suscipit velit, vel rutrum turpis bibendum sed. Maecenas et venenatis sapien. Cras sit amet metus mollis augue accumsan pulvinar non sed purus. Nam aliquam neque sed tortor mattis, et ornare odio finibus.
 
                     Cras in est massa. Nam mauris magna, feugiat ac auctor sit amet, vestibulum sit amet diam. Nullam vel ornare felis, vitae mollis nulla. Aenean nulla massa, commodo a iaculis nec, laoreet et nisl. Maecenas condimentum diam at arcu posuere elementum. Nulla facilisi. Vestibulum molestie semper ultrices. Nunc sed cursus eros, eu vulputate tortor. Mauris interdum vestibulum ultricies. Proin sapien massa, elementum quis laoreet dignissim, vestibulum non arcu. Morbi a elit non urna commodo viverra in sed diam. Quisque ut facilisis metus. Integer tempor ultrices urna, vitae blandit lorem tincidunt a. Cras ac faucibus mi, a porta diam. Quisque eget mauris ut tortor pretium suscipit eget vel odio.
@@ -24,9 +26,7 @@
 
                     Fusce egestas nibh in arcu placerat condimentum. Morbi suscipit augue in lacus sodales condimentum. Proin viverra at dui nec tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vulputate a felis eu efficitur. Praesent sit amet tellus id mi rhoncus placerat. Integer placerat quam ac ultricies dapibus.
 
-
-
-
+                   
                 </div>
             </h:form>
         </ui:define>
