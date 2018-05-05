@@ -42,7 +42,7 @@ public class Socio extends Usuario implements Serializable{
     @Column(name = "fecha_nacimiento", nullable = false)
     private Date fecha_nacimiento;
     @Column(name = "sexo", nullable = false)
-    private boolean sexo;
+    private String sexo;
     @Column(name = "direccion", nullable = false, length=30)
     private String direccion;
     @Column(name = "telefono", nullable = false, length=10)
@@ -60,9 +60,7 @@ public class Socio extends Usuario implements Serializable{
     private String info_tutores;
     @Temporal(TemporalType.DATE)
     private Date fecha_firma;
-    @Column(name = "localizacion", nullable = false)
-    private String localizacion;
-    private String perfil;
+
 
 //--NACHO    
     @OneToMany(mappedBy="socio")
@@ -224,11 +222,11 @@ public class Socio extends Usuario implements Serializable{
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public boolean isSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -303,24 +301,6 @@ public class Socio extends Usuario implements Serializable{
     public void setFecha_firma(Date fecha_firma) {
         this.fecha_firma = fecha_firma;
     }
-
-    public String getLocalizacion() {
-        return localizacion;
-    }
-
-    public void setLocalizacion(String localizacion) {
-        this.localizacion = localizacion;
-    }
-
-    public String getPerfil() {
-        return perfil;
-    }
-
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
-    }
-    
-    
     
     public Long getId_Socio() {
         return id_Socio;

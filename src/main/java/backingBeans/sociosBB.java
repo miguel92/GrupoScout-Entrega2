@@ -6,6 +6,7 @@
 package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Socio;
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,16 +14,18 @@ import java.util.Iterator;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author Borja Delgado
  */
 @Named(value = "sociosBB")
-@RequestScoped
-public class sociosBB {
+@SessionScoped
+public class sociosBB implements Serializable{
     
-    private Long sigId = Long.parseLong("1");
+    private Long sigIdUsuario = Long.parseLong("1");
+    private Long sigIdSocio = Long.parseLong("10000");    
     private List<Socio> socios;
     private Socio socio = new Socio();
 
@@ -31,27 +34,43 @@ public class sociosBB {
      */
     public sociosBB() {
         socios = new ArrayList<Socio>();
-        Socio soc = new Socio();
-        soc.setId_Socio(sigId++);
-        soc.setNombre("Juan");
-        soc.setApellidos("Truño");
-        soc.setDni("12345678");
-        soc.setEmail("HansTheMan@correo.com");
-        soc.setDireccion("Calle de Atrás, N1, 1ºB. Madrid, 10101");
-        soc.setSexo(true);
-        soc.setTelefono(952121212);
-        soc.setTelefono_movil(650121212);
-        soc.setPerfil("Scouter");
-        soc.setGrupo("Clan");
-        soc.setAmbito("Federal");
-        soc.setFecha_nacimiento(Date.valueOf("1994-02-13"));
-        soc.setFecha_ingreso(Date.valueOf(LocalDate.now()));
-        socios.add(soc);
-        soc = new Socio();
-        soc.setId_Socio(sigId++);
-        soc.setNombre("Loles");
-        soc.setApellidos("Lelos");
-        socios.add(soc);
+        Socio socio1 = new Socio();
+        socio1.setId_Socio(sigIdSocio++);
+        socio1.setId_Usuario(sigIdUsuario++);
+        socio1.setNombre("Juan");
+        socio1.setApellidos("Truño");
+        socio1.setDni("12345678");
+        socio1.setEmail("HansTheMan@correo.com");
+        socio1.setSexo("Hombre");
+        socio1.setFecha_nacimiento(Date.valueOf("1994-02-13"));
+        socio1.setDireccion("Calle de Atrás, N1, 1ºB. Madrid, 10101");        
+        socio1.setTelefono(952121212);
+        socio1.setTelefono_movil(650121212);
+        socio1.setPerfil("Scouter");
+        socio1.setGrupo("Clan");
+        socio1.setCargo("Instructor");
+        socio1.setAmbito("Federal");
+        socio1.setFecha_firma(Date.valueOf(LocalDate.now()));
+        socio1.setFecha_ingreso(Date.valueOf(LocalDate.now()));
+        socios.add(socio1);
+        Socio socio2 = new Socio();
+        socio2.setId_Socio(sigIdSocio++);
+        socio2.setId_Usuario(sigIdUsuario++);
+        socio2.setNombre("Loles");
+        socio2.setApellidos("Lelos");
+        socio2.setDni("12121212");
+        socio2.setEmail("LaLoLes@correo.com");
+        socio2.setSexo("Mujer");
+        socio2.setFecha_nacimiento(Date.valueOf("1998-07-19"));
+        socio2.setDireccion("Calle de Atrás, N1, 3ºA. Madrid, 10101");        
+        socio2.setTelefono(952345345);
+        socio2.setTelefono_movil(650345345);
+        socio2.setPerfil("Educando");
+        socio2.setGrupo("Clan");
+        socio2.setAmbito("Grupo");
+        socio2.setFecha_firma(Date.valueOf(LocalDate.now()));
+        socio2.setFecha_ingreso(Date.valueOf(LocalDate.now()));
+        socios.add(socio2);
     }
 
     public List<Socio> getSocios() {
@@ -70,21 +89,22 @@ public class sociosBB {
         this.socio = socio;
     }
     
+    //Accede a la vista de creación de socios
+    public String newSocio(){
+        socio = new Socio();
+        return "crearSocio.xhtml";
+    }
+    
+    //Crea el socio con los datos proporcionado en la vista de creación
     public String createSocio(){
-        socio.setId_Socio(sigId++);
+        socio.setId_Socio(sigIdSocio++);
+        socio.setId_Usuario(sigIdUsuario++);        
         socio.setFecha_ingreso(Date.valueOf(LocalDate.now()));
         socios.add(socio);
-        socio = new Socio();
         return "sociosLista.xhtml";
     }
     
-    public String updateSocio(){
-        socios.add(socio);
-        socio = new Socio();
-        return "sociosLista.xhtml";
-    }
-    
-    public String buscarSocio(Socio soc){
+    public String updateSocio(Socio soc){
         socio = soc;
         return "modificarSocio.xhtml";
     }
@@ -104,8 +124,6 @@ public class sociosBB {
             }
             i++;
         }
-
-        socio = new Socio();
         return "sociosLista.xhtml";
     }
 }

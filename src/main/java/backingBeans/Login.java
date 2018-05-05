@@ -44,7 +44,7 @@ public class Login {
         u1.setPass("1234");
         u1.setPerfil("EDU");
         u1.setNombre("Manuel");
-        u1.setSexo(true);
+        //u1.setSexo(true);
         u1.setFecha_nacimiento(new Date(1992,04,19));
         
         Socio u2 = new Socio();
