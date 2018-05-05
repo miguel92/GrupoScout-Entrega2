@@ -43,9 +43,9 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <h:outputLabel>Sexo</h:outputLabel>
-                                <h:selectOneMenu id="sexoUsuario" class="form-control" value="#{controlAutorizacion.socio.isSexo()}" a:disabled="true">
-                                    <f:selectItem itemValue="true" itemLabel="Varón"></f:selectItem>
-                                    <f:selectItem itemValue="false" itemLabel="Mujer"></f:selectItem>
+                                <h:selectOneMenu id="sexoUsuario" class="form-control" value="#{controlAutorizacion.socio.getSexo()}" a:disabled="true">
+                                    <f:selectItem itemValue="Hombre" itemLabel="Hombre"></f:selectItem>
+                                    <f:selectItem itemValue="Mujer" itemLabel="Mujer"></f:selectItem>
                                 </h:selectOneMenu>
                             </div>
                             <div class="form-group col-md-3">
