@@ -6,17 +6,18 @@
 package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Evento;
+import java.io.Serializable;
 import java.sql.Date;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author migue
  */
 @Named(value = "eventoEduBB")
-@RequestScoped
-public class eventoEduBB {
+@SessionScoped
+public class eventoEduBB implements Serializable{
     private Long idEvento;
     private Evento evt;
     /**

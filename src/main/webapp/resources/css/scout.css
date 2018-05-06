@@ -275,6 +275,28 @@ body {
     height: 65px;
     font-size: 1.8em;
     background-color: red;
-    border-color:gold;
     font-weight: bold;
+    color:white;
+}
+.btn-inscribirse:hover{
+    background-color: orange;
+    border: 2px black solid;
+}
+.cab_comentarios{
+        color: lightsteelblue;
+}
+.caja_comentario{
+    border-left: 2px solid #622599;
+    border-radius: 15px;
+    font-size: 18px;
+    padding: 20px;
+}
+.btn_comentar{
+    font-weight: bold;
+}
+.textAreaCom{
+    width:100%;
+    min-height: 150px;
+    resize: none;
+    margin: 15px 0px 15px 0px;
 }
