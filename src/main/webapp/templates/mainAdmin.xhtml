@@ -32,6 +32,11 @@
                             </div>
                             <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
                             <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Cuotas </span></a> 
+                            <div class="collapse" id="menu3" data-parent="#sidebar">
+                                <a href="cuotasLista.xhtml" class="list-group-item" data-parent="#menu3">Lista de Cuotas</a>
+                                <a href="cuotasCrear.xhtml" class="list-group-item" data-parent="#menu3">Crear Cuota</a>
+                                <a href="cuotasLista.xhtml" class="list-group-item" data-parent="#menu3">Modificar Cuota</a>
+                            </div>
                             <a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Ingresos y gastos   </span></a> 
                             <a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Documentos   </span></a> 
                             <div class="collapse" id="menu5" data-parent="#sidebar">
@@ -41,7 +46,12 @@
                             </div>
                             <a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Entradas Calendario </span></a>
                             <a href="#menu7" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Pagos </span></a> 
-                            <a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Presupuestos </span></a> 
+                            <a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Presupuestos </span></a>
+                            <div class="collapse" id="menu8" data-parent="#sidebar">
+                                <a href="presupuestosLista.xhtml" class="list-group-item" data-parent="#menu8">Lista de Presupuestos</a>
+                                <a href="presupuestosCrear.xhtml" class="list-group-item" data-parent="#menu8">Crear Presupuesto</a>
+                                <a href="presupuestosLista.xhtml" class="list-group-item" data-parent="#menu8">Modificar Presupuesto</a>
+                            </div>
                             <a href="#menu9" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Secciones </span></a> 
                         </c:if>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
