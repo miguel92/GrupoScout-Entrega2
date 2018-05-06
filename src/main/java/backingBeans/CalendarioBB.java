@@ -61,6 +61,20 @@ public class CalendarioBB implements Serializable{
         entrada3.setDescripcion("Evento en la sierra de la Alpujarra.");
         entrada3.setSocio(socio2);
         calendario.add(entrada3);
+        Entrada_Calendario entrada4 = new Entrada_Calendario();
+        entrada4.setId_entrada_calendario(sigIdEntrada++);
+        entrada4.setCategoria("Insignia");
+        entrada4.setFecha(Date.valueOf(LocalDate.now()));
+        entrada4.setDescripcion("Has conseguido la insignia de la valentía. Enhorabuena.");
+        entrada4.setSocio(socio2);
+        calendario.add(entrada4);
+        Entrada_Calendario entrada5 = new Entrada_Calendario();
+        entrada5.setId_entrada_calendario(sigIdEntrada++);
+        entrada5.setCategoria("Insignia");
+        entrada5.setFecha(Date.valueOf(LocalDate.now()));
+        entrada5.setDescripcion("Has conseguido la insignia de la valentía. Enhorabuena.");
+        entrada5.setSocio(socio2);
+        calendario.add(entrada5);
     }
 
     public Long getSigIdEntrada() {
@@ -99,10 +113,14 @@ public class CalendarioBB implements Serializable{
         if(buscador.compareTo(Long.parseLong("0"))==0){
             return calendario;
         }
-        List<Entrada_Calendario> res = new ArrayList();
+        List<Entrada_Calendario> res = new ArrayList<Entrada_Calendario>();
         Iterator<Entrada_Calendario> it = calendario.iterator();
         Entrada_Calendario aux = it.next();
-        while(aux != null){
+        if(aux.getSocio().getId_Socio().compareTo(buscador)==0){
+                res.add(aux);
+        }
+        while(it.hasNext()){
+            aux = it.next();
             if(aux.getSocio().getId_Socio().compareTo(buscador)==0){
                 res.add(aux);
             }
@@ -115,7 +133,7 @@ public class CalendarioBB implements Serializable{
         return "consultarEntradaCalendario.xhtml";
     }
     
-    public String newEntradaCalendario(){
+    public String limpiarBusqueda(){
         buscador = Long.parseLong("0");
         return "listarCalendario.xhtml";
     }

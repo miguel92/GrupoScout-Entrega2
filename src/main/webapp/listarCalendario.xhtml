@@ -25,12 +25,12 @@
                         <h:commandButton action="listarCalendario.xhtml" class="btn btn-primary" value="Filtrar"/>
                     </div>
                     <div class="form-group col-md-3">
-                        <h:commandButton action="#{CalendarioBB.newEntradaCalendario()}" class="btn btn-primary" value="Limpiar"/>
+                        <h:commandButton action="#{CalendarioBB.limpiarBusqueda()}" class="btn btn-primary" value="Limpiar"/>
                     </div>
                 </div>
             </h:form>
             
-            <h:dataTable id="listaCalendario" value="#{CalendarioBB.getCalendario()}"  var="entCal" class="table">
+            <h:dataTable id="listaCalendario" value="#{CalendarioBB.getCalendarioFiltered()}"  var="entCal" class="table">
                 <h:column >
                     <f:facet name="header">
                         <h:outputText value="Identificador Entrada"/>
