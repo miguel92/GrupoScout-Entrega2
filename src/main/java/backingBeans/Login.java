@@ -5,9 +5,9 @@
  */
 package backingBeans;
 
+import com.softbox.gruposantoangel.entity.Seccion;
 import com.softbox.gruposantoangel.entity.Socio;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Named;
@@ -38,14 +38,19 @@ public class Login {
     private SessionUtils session;*/
     
     public Login() {
-        lista_usuarios = new ArrayList<Socio>();
+        lista_usuarios = new ArrayList<>();
+        Seccion sec = new Seccion();
+        sec.setId_seccion(Long.parseLong("1"));
+        sec.setNombre("unidad");
         Socio u1 = new Socio();
         u1.setEmail("edu@correo.com");
         u1.setPass("1234");
         u1.setPerfil("EDU");
         u1.setNombre("Manuel");
-        //u1.setSexo(true);
+        u1.setApellidos("Pérez");
+        u1.setSexo("Hombre");
         u1.setFecha_nacimiento(new Date(1992,04,19));
+        u1.setSeccion(sec);
         
         Socio u2 = new Socio();
         u2.setEmail("scouter@correo.com");

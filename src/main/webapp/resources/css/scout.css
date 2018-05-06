@@ -300,3 +300,11 @@ body {
     resize: none;
     margin: 15px 0px 15px 0px;
 }
+
+.icono_scout{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 10px;
+    border:2px solid green;
+}
