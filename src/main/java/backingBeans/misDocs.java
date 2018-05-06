@@ -92,4 +92,7 @@ public class misDocs implements Serializable{
         }
         return "misDocumentos.xhtml";
     }
+    public String getEnlace(Documento doc){
+        return doc.getEnlace();
+    }
 }
