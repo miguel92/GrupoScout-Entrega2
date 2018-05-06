@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.context.SessionScoped;
 
 /**
@@ -77,23 +76,20 @@ public class misDocs implements Serializable{
         this.miDoc = miDoc;
     }
     
-    public String borrarDoc(){
-        return "index.xhtml";
-        /*boolean encontrado = false;
+    public String borrarDoc(Documento doc){
+        
+        boolean encontrado = false;
         int contador = 0;
         Documento temp = null;
-                        System.out.println("ASDASDASDASDASDSAD");
-                System.out.println(temp);
+
         while(contador < lista_docs.size() && !encontrado){
             temp = lista_docs.get(contador);
             if(doc.getId_documento().compareTo(temp.getId_documento())==0){
-                System.out.println("ASDASDASDASDASDSAD");
-                System.out.println(temp);
                 encontrado = true;
                 lista_docs.remove(contador);
             }
             contador++;
-        }*/
-        
+        }
+        return "misDocumentos.xhtml";
     }
 }
