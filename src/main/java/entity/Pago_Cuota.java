@@ -33,7 +33,7 @@ public class Pago_Cuota implements Serializable {
     
     
     @Column(nullable=false,length=100)
-    private Integer importe;
+    private Float importe;
     
     @Column(nullable=false,length=10)
     @Temporal(TemporalType.DATE)
@@ -53,11 +53,11 @@ public class Pago_Cuota implements Serializable {
         this.id_Pago = id_Pago;
     }
 
-    public Integer getImporte() {
+    public Float getImporte() {
         return importe;
     }
 
-    public void setImporte(Integer importe) {
+    public void setImporte(Float importe) {
         this.importe = importe;
     }
 
