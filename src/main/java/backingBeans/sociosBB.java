@@ -10,10 +10,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 
 /**
@@ -125,5 +123,17 @@ public class sociosBB implements Serializable{
             i++;
         }
         return "sociosLista.xhtml";
+    }
+    
+    public Socio getSocioByID(Long id){
+        boolean encontrado = false;
+        int i = 0;
+        while(!encontrado && i < socios.size()){
+            if(socios.get(i).getId_Socio().compareTo(id)==0){
+                return socios.get(i);
+            }
+            i++;
+        }
+        return null;
     }
 }

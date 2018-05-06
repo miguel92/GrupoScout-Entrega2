@@ -53,6 +53,7 @@
                                 <a href="#" class="list-group-item" data-parent="#menu5">Campos de Documentos</a>
                             </div>
                             <a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Entradas Calendario </span></a>
+<<<<<<< HEAD
 
                             <a href="#menu7" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Pagos </span></a>
                             <div class="collapse" id="menu7" data-parent="#sidebar">
@@ -71,12 +72,21 @@
                                 <a href="presupuestosLista.xhtml" class="list-group-item" data-parent="#menu8">Modificar Presupuesto</a>
                             </div>
 
+=======
+                            <div class="collapse" id="menu6" data-parent="#sidebar">
+                                <h:form>
+                                    <h:commandLink action="#{CalendarioBB.limpiarBusqueda()}" class="list-group-item" a:data-parent="#menu6">Lista de Entradas de Calendario</h:commandLink>
+                                </h:form>
+                            </div>
+                            <a href="#menu7" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Pagos </span></a> 
+                            <a href="#menu8" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Presupuestos </span></a> 
+>>>>>>> origin/Borja
                             <a href="#menu9" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Secciones </span></a> 
                         </c:if>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
                             <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>     
                              <div class="collapse" id="menu1" data-parent="#sidebar">
-                                <a href="#" class="list-group-item" data-parent="#menu1">Lista de Socios</a>
+                                <a href="sociosLista.xhtml" class="list-group-item" data-parent="#menu1">Lista de Socios</a>
                             </div>
                             <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
                             <div class="collapse" id="menu2" data-parent="#sidebar">
