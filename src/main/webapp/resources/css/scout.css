@@ -27,7 +27,7 @@ and open the template in the editor.
     border-right: 3px solid #622599 !important;
     margin-bottom: 5px;
 }
-.active{
+#menu_principal .active{
     background-color: #440976;
 }
 #menu_principal{
@@ -307,4 +307,7 @@ body {
     border-radius: 20px;
     margin-right: 10px;
     border:2px solid green;
+}
+#carouselExampleFade{
+    background-color: rgba(33,33,33,0.2);
 }
