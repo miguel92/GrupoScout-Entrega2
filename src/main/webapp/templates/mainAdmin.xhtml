@@ -53,7 +53,7 @@
                                 <a href="#" class="list-group-item" data-parent="#menu5">Campos de Documentos</a>-->
                             </div>
                             <a href="#menu6" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Entradas Calendario </span></a>
-                                                        <div class="collapse" id="menu6" data-parent="#sidebar">
+                            <div class="collapse" id="menu6" data-parent="#sidebar">
                                 <h:form>
                                     <h:commandLink action="#{CalendarioBB.limpiarBusqueda()}" class="list-group-item" a:data-parent="#menu6">Lista de Entradas de Calendario</h:commandLink>
                                 </h:form>
@@ -80,17 +80,17 @@
                         </c:if>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
                             <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Socios </span></a>     
-                             <div class="collapse" id="menu1" data-parent="#sidebar">
+                            <div class="collapse" id="menu1" data-parent="#sidebar">
                                 <a href="sociosLista.xhtml" class="list-group-item" data-parent="#menu1">Lista de Socios</a>
                             </div>
                             <a href="#menu2" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Eventos </span></a>
                             <div class="collapse" id="menu2" data-parent="#sidebar">
                                 <a href="listarEventos.xhtml" class="list-group-item" data-parent="#menu2">Lista de Evento</a>
-                                
+
                             </div>
                             <a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Documentos   </span></a> 
                             <div class="collapse" id="menu5" data-parent="#sidebar">
-                               <a href="documentosLista.xhtml" class="list-group-item" data-parent="#menu5">Documentos Educandos</a>
+                                <a href="documentosLista.xhtml" class="list-group-item" data-parent="#menu5">Documentos Educandos</a>
                                 <!--<a href="#" class="list-group-item" data-parent="#menu5">Plantillas de Documentos</a>
                                 <a href="#" class="list-group-item" data-parent="#menu5">Campos de Documentos</a>-->
                             </div>
@@ -104,11 +104,15 @@
                 </div>
                 <main class="col-md-10 float-left col px-5 pl-md-2 pt-2 main">
                     <div style="min-height: 30px">
-                        <h:form>
-                            <h:commandLink action="#{controlAutorizacion.logoutAdmin()}" class="btn btn-secondary float-right"><i class="fas fa-sign-out-alt"></i> Salir </h:commandLink>
-                        </h:form>
-                        <!--<a href="#" data-target="#sidebar" data-toggle="collapse" class="btn btn-secondary float-right" id="btn_comprimir"><i class="fas fa-compress"></i></a> -->
-
+                        <c:if test="#{!empty controlAutorizacion.socio}">
+                            <h:form>
+                                <h:commandLink action="#{controlAutorizacion.logoutAdmin()}" class="btn btn-secondary float-right"><i class="fas fa-sign-out-alt"></i> Salir </h:commandLink>
+                            </h:form>
+                            <h:form>
+                                    <h:commandLink action="index.xhtml" class="btn btn-primary float-right" style="margin-right: 10px;"><i class="fab fa-whmcs"></i> <strong>Volver a Web</strong></h:commandLink>
+                            </h:form>
+                            <!--<a href="#" data-target="#sidebar" data-toggle="collapse" class="btn btn-secondary float-right" id="btn_comprimir"><i class="fas fa-compress"></i></a> -->
+                        </c:if>
                     </div>
                     <hr></hr>
                     <div class="page-header">
