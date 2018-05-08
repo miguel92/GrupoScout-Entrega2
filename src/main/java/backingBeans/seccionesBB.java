@@ -5,6 +5,7 @@
  */
 package backingBeans;
 
+import com.softbox.gruposantoangel.entity.Seccion;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
@@ -17,10 +18,22 @@ import javax.enterprise.context.RequestScoped;
 @RequestScoped
 public class seccionesBB {
     private String seccion;
+    private Seccion sec;
     /**
      * Creates a new instance of seccionesBB
      */
     public seccionesBB() {
+        sec = new Seccion();
+        sec.setDescripcion("Esta es la sección de los castores, a la cual se pueden apuntar niños desde los X hasta los Y años.");
+        sec.setNombre("castores");
+    }
+
+    public Seccion getSec() {
+        return sec;
+    }
+
+    public void setSec(Seccion sec) {
+        this.sec = sec;
     }
     
     public String cargarLista(String seccion){

@@ -40,7 +40,7 @@ public class eventosBB implements Serializable{
         evento1.setLocalizacion("Extremadura");
         evento1.setPrecio(Float.parseFloat("56.99"));
         evento1.setFecha(Date.valueOf("2018-09-13"));
-        
+
         
         eventos.add(evento1);
         
