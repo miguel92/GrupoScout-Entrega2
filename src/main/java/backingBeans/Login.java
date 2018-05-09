@@ -30,6 +30,7 @@ public class Login {
     private String correo;
     private String password;
     private List<Socio> lista_usuarios;
+    private Long idsocio = Long.parseLong("1");
     
     @Inject
     private ControlAutorizacion ctrl;
@@ -51,15 +52,18 @@ public class Login {
         u1.setSexo("Hombre");
         u1.setFecha_nacimiento(new Date(1992,04,19));
         u1.setSeccion(sec);
+        u1.setId_Socio(idsocio++);
         
         Socio u2 = new Socio();
         u2.setEmail("scouter@correo.com");
         u2.setPass("oye");
         u2.setPerfil("SCOUT");
+        u2.setId_Socio(idsocio++);
         Socio u3 = new Socio();
         u3.setEmail("admin@correo.com");
         u3.setPass("root");
         u3.setPerfil("ROOT");
+        u3.setId_Socio(idsocio++);
         lista_usuarios.add(u3);
         lista_usuarios.add(u2);
         lista_usuarios.add(u1);

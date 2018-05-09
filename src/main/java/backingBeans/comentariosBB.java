@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 
 /**
  *
@@ -28,7 +29,7 @@ public class comentariosBB implements Serializable {
     private List<Comentario> listComen;
     private Long sigComentario = Long.parseLong("1");
     private String textoComentario;
-    
+
     /**
      * Creates a new instance of comentariosBB
      */
@@ -39,7 +40,9 @@ public class comentariosBB implements Serializable {
         com.setFecha(Date.valueOf("2018-02-15"));
         com.setTexto("Me encanta la pesca, yo voy seguro!");
         Socio s1 = new Socio();
-        s1.setNombre("Pepe");
+        
+        s1.setNombre("Manuel");
+        s1.setId_Socio(Long.parseLong("1"));
         com.setSocio(s1);
         com.setId_comentario(sigComentario++);
         listComen.add(com);
@@ -61,7 +64,7 @@ public class comentariosBB implements Serializable {
         c1.setSocio(s);
         c1.setId_comentario(sigComentario++);
         listComen.add(c1);
-        
+        textoComentario= "";
         return "evento.xhtml";
     }
     public Comentario getCom() {
@@ -88,5 +91,10 @@ public class comentariosBB implements Serializable {
         this.sigComentario = sigComentario;
     }
     
-    
+    public void editarCom(){
+    }
+
+    public void borrarCom(Comentario com){
+        listComen.remove(com);
+    }
 }

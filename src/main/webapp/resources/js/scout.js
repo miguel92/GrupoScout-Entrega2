@@ -26,10 +26,22 @@ function lateralActivo() {
     cadena = url.substring(indice + 1, url.length - 6);
     $("#lateral" + cadena).toggleClass("active");
 }
+function editarComentarioEvt(){
+        $( ".btn_editarCom" ).click(function(evt) {
+          evt.preventDefault();
+          cadena = $(this).attr("id");
+          cadena = cadena.substr(9,cadena.length);
+          $( "#idComentario"+cadena ).addClass("d-none");
+          $("#formEditCom"+cadena+"\\:guardarComentario"+cadena).removeClass("d-none");
+          $("#formEditCom"+cadena+"\\:idComentarioTexto"+cadena).removeClass("d-none");
+        });
+}
 
 $(document).ready(function () {
     // Handler for .ready() called.
     enlaceActivo();
     btnEditarUsuario();
     lateralActivo();
+    editarComentarioEvt();
+
 });
