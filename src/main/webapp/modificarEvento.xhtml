@@ -7,10 +7,10 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <ui:composition template="templates/mainAdmin.xhtml">
         <ui:define name="title">
-            Modificar socio
+            Modificar evento
         </ui:define>
         <ui:define name="titulo_modulo">
-            Modificar socio
+            Modificar evento
         </ui:define>
         <ui:define name="contenido">
             <h:form id="formCrearEvento">
@@ -36,13 +36,17 @@
                     </div>
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputPrecio">Precio *</h:outputLabel>
-                        <h:inputText a:type="text" value="#{eventosBB.evento.precio}" class="form-control" id="inputPrecio" a:placeholder="Precio"/>
+                        <h:inputText a:type="number" a:step="any" value="#{eventosBB.evento.precio}" class="form-control" id="inputPrecio" a:placeholder="Precio"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputFecha">Fecha de Evento *</h:outputLabel>
                         <h:inputText a:type="date" value="#{eventosBB.evento.fecha}" class="form-control" id="inputFecha" a:required="true" a:placeholder="DD/MM/AAAA"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputIdSeccion">Seccion *</h:outputLabel>
+                        <h:inputText a:type="number" value="#{eventosBB.evento.seccion.id_seccion}" class="form-control" id="inputIdSeccion" a:placeholder="Seccion"/>
                     </div>
                 </div>
                 <h:commandButton action="listarEventos.xhtml" class="btn btn-primary" value="Modificar"/>

@@ -31,11 +31,15 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputPrecio">Precio *</h:outputLabel>
-                        <h:inputText a:type="number" value="#{eventosBB.evento.precio}" class="form-control" id="inputPrecio" a:required="true" a:placeholder="Precio"/>
+                        <h:inputText a:type="number" a:step="any" value="#{eventosBB.evento.precio}" class="form-control" id="inputPrecio" a:required="true" a:placeholder="Precio"/>
                     </div>
                     <div class="form-group col-md-4">
                         <h:outputLabel for="inputFecha">Fecha de Evento *</h:outputLabel>
                         <h:inputText a:type="date" value="#{eventosBB.evento.fecha}" class="form-control" id="inputFecha" a:required="true" a:placeholder="DD/MM/AAAA"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputSeccion">Seccion *</h:outputLabel>
+                        <h:inputText a:type="number" value="#{eventosBB.evento.seccion.id_seccion}" class="form-control" id="inputSeccion" a:required="true" a:placeholder="Seccion"/>
                     </div>
                 </div>
                 &nbsp;&nbsp;
