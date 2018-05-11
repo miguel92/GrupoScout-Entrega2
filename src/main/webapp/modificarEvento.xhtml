@@ -44,6 +44,14 @@
                         <h:outputLabel for="inputFecha">Fecha de Evento *</h:outputLabel>
                         <h:inputText a:type="date" value="#{eventosBB.evento.fecha}" class="form-control" id="inputFecha" a:required="true" a:placeholder="DD/MM/AAAA"><f:convertDateTime pattern="yyyy-MM-dd"/></h:inputText>
                     </div>
+                    <div class="form-group col-md-4">
+                        <h:outputLabel for="inputImagenEvento">Imagen *</h:outputLabel>
+                        <h:selectOneMenu id="inputImagenEvento" value="#{eventosBB.evento.imagen}" required="true" requiredMessage="*Atributo obligatorio*" class="form-control">
+                            <f:selectItem itemLabel="Pesca" itemValue="resources/images/pesca.jpg"/>
+                            <f:selectItem itemLabel="Elegir" noSelectionOption="true"/>
+                        </h:selectOneMenu>
+                        <h:message for="inputImagenEvento" style="color: red"/>
+                    </div>
                 </div>
                 <h:commandButton action="listarEventos.xhtml" class="btn btn-primary" value="Modificar"/>
                 &nbsp;&nbsp;

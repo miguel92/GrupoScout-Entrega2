@@ -6,7 +6,6 @@
 package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Documento;
-import com.softbox.gruposantoangel.entity.Documento_Plantilla;
 import com.softbox.gruposantoangel.entity.EstadoDoc;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,7 +33,6 @@ public class misDocs implements Serializable{
         miDoc.setId_documento(nextDoc++);
         miDoc.setFecha(Date.valueOf("2018-02-19"));
         miDoc.setEnlace("C:\\files\\578025.png");
-        miDoc.setDoc_plantilla(new Documento_Plantilla());
         miDoc.setNombre("Alergias");
         miDoc.setTipo("1");
         miDoc.setEstado(EstadoDoc.ACEPTADO);
@@ -44,7 +42,6 @@ public class misDocs implements Serializable{
         miDoc.setId_documento(nextDoc++);
         miDoc.setFecha(Date.valueOf("2017-07-19"));
         miDoc.setEnlace("./resources/docs/dni.pdf");
-        miDoc.setDoc_plantilla(new Documento_Plantilla());
         miDoc.setNombre("DNI");
         miDoc.setEstado(EstadoDoc.ENTREGADO);
         miDoc.setTipo("2");
