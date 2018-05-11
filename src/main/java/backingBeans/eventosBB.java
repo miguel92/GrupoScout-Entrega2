@@ -44,12 +44,8 @@ public class eventosBB implements Serializable{
         evento1.setLocalizacion("Extremadura");
         evento1.setPrecio(Float.parseFloat("56.99"));
         evento1.setFecha(Date.valueOf("2018-09-13"));
-<<<<<<< HEAD
         evento1.setImagen("resources/images/pesca.jpg");
-=======
         evento1.setSeccion(seccion);
-        
->>>>>>> origin/Ignacio
         eventos.add(evento1);
         
         Evento evento2 = new Evento();
@@ -59,12 +55,9 @@ public class eventosBB implements Serializable{
         evento2.setLocalizacion("Malaga");
         evento2.setPrecio(Float.parseFloat("14.99"));
         evento2.setFecha(Date.valueOf("2018-07-09"));
-<<<<<<< HEAD
         evento2.setImagen("resources/images/pesca.jpg");
-=======
         evento2.setSeccion(seccion);
-        
->>>>>>> origin/Ignacio
+
         eventos.add(evento2);
     }
 
