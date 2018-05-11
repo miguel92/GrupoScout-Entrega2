@@ -6,6 +6,7 @@
 package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Evento;
+import com.softbox.gruposantoangel.entity.Seccion;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -32,6 +33,9 @@ public class eventosBB implements Serializable{
      * Creates a new instance of sociosBB
      */
     public eventosBB() {
+        Seccion seccion= new Seccion();
+        seccion.setId_seccion(Long.parseLong("1"));
+        
         eventos = new ArrayList<Evento>();
         Evento evento1 = new Evento();
         evento1.setId_evento(sigIdEvento++);
@@ -40,7 +44,12 @@ public class eventosBB implements Serializable{
         evento1.setLocalizacion("Extremadura");
         evento1.setPrecio(Float.parseFloat("56.99"));
         evento1.setFecha(Date.valueOf("2018-09-13"));
+<<<<<<< HEAD
         evento1.setImagen("resources/images/pesca.jpg");
+=======
+        evento1.setSeccion(seccion);
+        
+>>>>>>> origin/Ignacio
         eventos.add(evento1);
         
         Evento evento2 = new Evento();
@@ -50,7 +59,12 @@ public class eventosBB implements Serializable{
         evento2.setLocalizacion("Malaga");
         evento2.setPrecio(Float.parseFloat("14.99"));
         evento2.setFecha(Date.valueOf("2018-07-09"));
+<<<<<<< HEAD
         evento2.setImagen("resources/images/pesca.jpg");
+=======
+        evento2.setSeccion(seccion);
+        
+>>>>>>> origin/Ignacio
         eventos.add(evento2);
     }
 
@@ -73,6 +87,8 @@ public class eventosBB implements Serializable{
     //Accede a la vista de creación de eventos
     public String newEvento(){
         evento = new Evento();
+        Seccion seccion=new Seccion();
+        evento.setSeccion(seccion);
         return "crearEvento.xhtml";
     }
     
