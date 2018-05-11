@@ -7,6 +7,8 @@ package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Evento;
 import com.softbox.gruposantoangel.entity.Seccion;
+import com.softbox.gruposantoangel.entity.Socio;
+import java.io.File;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -16,6 +18,19 @@ import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.nio.file.Paths;
 
 /**
  *
@@ -35,7 +50,34 @@ public class eventosBB implements Serializable{
     public eventosBB() {
         Seccion seccion= new Seccion();
         seccion.setId_seccion(Long.parseLong("1"));
+        List<Socio> asistentes=new ArrayList<Socio>();
+        List<Socio> inscritos=new ArrayList<Socio>();
         
+        Socio socio1=new Socio();
+        socio1.setId_Socio(Long.parseLong("0"));
+        socio1.setNombre("Roberto");
+        socio1.setApellidos("Ramirez");
+        Socio socio2=new Socio();
+        socio2.setId_Socio(Long.parseLong("1"));
+        socio2.setNombre("Miguel");
+        socio2.setApellidos("Antonio de la Rosa Santísima");
+        Socio socio3=new Socio();
+        socio3.setId_Socio(Long.parseLong("2"));
+        socio3.setNombre("Juan Alberto");
+        socio3.setApellidos("Totti");
+        Socio socio4=new Socio();
+        socio4.setId_Socio(Long.parseLong("3"));
+        socio4.setNombre("Fidel");
+        socio4.setApellidos("Delgado");
+        Socio socio5=new Socio();
+        socio5.setId_Socio(Long.parseLong("4"));
+        socio5.setNombre("María Marta");
+        socio5.setApellidos("Schwarzenegger");
+        asistentes.add(socio1);
+        asistentes.add(socio2);
+        inscritos.add(socio3);
+        inscritos.add(socio4);
+        inscritos.add(socio5);
         eventos = new ArrayList<Evento>();
         Evento evento1 = new Evento();
         evento1.setId_evento(sigIdEvento++);
@@ -45,7 +87,8 @@ public class eventosBB implements Serializable{
         evento1.setPrecio(Float.parseFloat("56.99"));
         evento1.setFecha(Date.valueOf("2018-09-13"));
         evento1.setSeccion(seccion);
-        
+        evento1.setAsistentes(asistentes);
+        evento1.setInscritos(inscritos);
         eventos.add(evento1);
         
         Evento evento2 = new Evento();
@@ -57,7 +100,8 @@ public class eventosBB implements Serializable{
         evento2.setPrecio(Float.parseFloat("14.99"));
         evento2.setFecha(Date.valueOf("2018-07-09"));
         evento2.setSeccion(seccion);
-        
+        evento2.setAsistentes(asistentes);
+        evento2.setInscritos(inscritos);
         eventos.add(evento2);
     }
 
@@ -113,5 +157,80 @@ public class eventosBB implements Serializable{
             i++;
         }
         return "listarEventos.xhtml";
+    }
+    public String getDireccionDescarga(int modo) throws UnsupportedEncodingException{
+        String nombreArchivo="";
+        if(modo==0){
+            nombreArchivo="Asistentes.xlsx";
+        }else{
+            nombreArchivo="Inscritos.xlsx";
+        }
+        eventosBB demo=new eventosBB();
+        String path = demo.getClass().getClassLoader().getResource("").getPath();
+        String path2=demo.getClass().getResource("").getPath();
+        String fullPath = URLDecoder.decode(path2, "UTF-8");
+        
+        String pathArr[] = fullPath.split("/WEB-INF/classes/backingBeans/");
+        
+        fullPath = pathArr[0];
+        
+        String reponsePath = "";
+        reponsePath = new File(fullPath).getPath() + File.separatorChar + "resources"+File.separatorChar+nombreArchivo;
+        return reponsePath;
+    }
+    
+    public void descargaEvento(Evento evento,int modo) throws UnsupportedEncodingException{
+        
+        String FILE_NAME=getDireccionDescarga(modo);
+
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet;
+        List<Socio> socios;
+        if(modo==0){
+            sheet= workbook.createSheet("Asistentes");
+            socios=evento.getAsistentes();
+        }else{
+            sheet= workbook.createSheet("Inscritos");
+            socios=evento.getInscritos();
+        }
+        int rowNum = 0;
+        
+        Row rowInicial = sheet.createRow(rowNum++);
+        Cell cellInicial=rowInicial.createCell(0);
+        cellInicial.setCellValue("ID_SOCIO");
+        
+        cellInicial = rowInicial.createCell(1);
+        cellInicial.setCellValue("NOMBRE");
+        
+        cellInicial = rowInicial.createCell(2);
+        cellInicial.setCellValue("APELLIDOS");
+        
+        if(socios!=null){
+            for (Socio socio : socios) {
+                Row row = sheet.createRow(rowNum++);
+                int colNum = 0;
+            
+                Cell cell = row.createCell(colNum++);
+                cell.setCellValue(socio.getId_Socio());
+                
+                cell = row.createCell(colNum++);
+                cell.setCellValue(socio.getNombre());
+            
+                cell = row.createCell(colNum++);
+                cell.setCellValue(socio.getApellidos());
+            }
+        }
+
+        try {
+            FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
+            workbook.write(outputStream);
+            workbook.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        
     }
 }
