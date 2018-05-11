@@ -26,6 +26,7 @@ and open the template in the editor.
 .lista_lateral a {
     border-right: 3px solid #622599 !important;
     margin-bottom: 5px;
+    padding: 5px;
 }
 #menu_principal .active{
     background-color: #440976;
@@ -213,11 +214,21 @@ body {
     transition-timing-function: ease-out;
 }
 
-@media (max-width:1373px) {
-    .navbar-nav * {
-        font-size: 12px;
+@media (max-width:1500px) {
+    .nav-link  {
+        font-size: 0.8em;
         text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow:ellipsis;
     }
+    .lista_lateral a{
+        font-size: 0.8em;
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
 }
 
 /*Sprites redes sociales*/
@@ -341,4 +352,16 @@ body {
     font-size: 9px;
     display: inline-block;
     top: 5px;
+}
+.icono_noti{
+    text-decoration: none;
+    display:block;
+    width: 30px;
+    height: 30px;
+}
+
+@media(max-width:991px){
+    .icono_noti{
+        margin:0 auto !important;
+    }
 }
