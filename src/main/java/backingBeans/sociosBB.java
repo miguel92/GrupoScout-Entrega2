@@ -36,7 +36,7 @@ public class sociosBB implements Serializable{
         socio1.setId_Socio(sigIdSocio++);
         socio1.setId_Usuario(sigIdUsuario++);
         socio1.setNombre("Juan");
-        socio1.setApellidos("Truño");
+        socio1.setApellidos("Fernández");
         socio1.setDni("12345678");
         socio1.setEmail("HansTheMan@correo.com");
         socio1.setSexo("Hombre");
