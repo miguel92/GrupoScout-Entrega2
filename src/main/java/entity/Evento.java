@@ -46,6 +46,8 @@ public class Evento implements Serializable {
     private String localizacion;
     @Column(nullable=false)
     private Float precio;
+    @Column(nullable=false)
+    private String imagen;
     
     //Relaciones
     @ManyToOne
@@ -65,11 +67,7 @@ public class Evento implements Serializable {
     @OneToMany(mappedBy = "evento")
     private List<Pago_Evento> pagosEvento;
     @OneToMany(mappedBy = "evento")
-    private List<Comentario> comentariosEvento;
-    @OneToMany(mappedBy = "evento")
-    private List<Presupuesto_Evento> presupuestosEvento;
-    
-    
+    private List<Comentario> comentariosEvento;    
     
     
     //Getters
@@ -122,10 +120,9 @@ public class Evento implements Serializable {
         return comentariosEvento;
     }
 
-    public List<Presupuesto_Evento> getPresupuestosEvento() {
-        return presupuestosEvento;
+    public String getImagen() {
+        return imagen;
     }
-    
 
     //Setters
     public void setId_evento(Long id_evento) {
@@ -175,11 +172,10 @@ public class Evento implements Serializable {
     public void setComentariosEvento(List<Comentario> comentariosEvento) {
         this.comentariosEvento = comentariosEvento;
     }
-
-    public void setPresupuestosEvento(List<Presupuesto_Evento> presupuestosEvento) {
-        this.presupuestosEvento = presupuestosEvento;
-    }
     
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     
     //HashCode, Equals y ToString
     @Override

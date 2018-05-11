@@ -41,8 +41,6 @@ public class Documento implements Serializable {
     @Enumerated(EnumType.STRING)
     private EstadoDoc estado;
     @ManyToOne
-    private Documento_Plantilla doc_plantilla;
-    @ManyToOne
     private Socio socio;
     
     public Long getId_documento() {
@@ -83,14 +81,6 @@ public class Documento implements Serializable {
 
     public void setEstado(EstadoDoc estado) {
         this.estado = estado;
-    }
-
-    public Documento_Plantilla getDoc_plantilla() {
-        return doc_plantilla;
-    }
-
-    public void setDoc_plantilla(Documento_Plantilla doc_plantilla) {
-        this.doc_plantilla = doc_plantilla;
     }
 
     public Date getFecha() {
