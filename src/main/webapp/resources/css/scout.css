@@ -214,7 +214,7 @@ body {
 }
 
 @media (max-width:1373px) {
-    .nav-link {
+    .navbar-nav * {
         font-size: 12px;
         text-align: center;
     }
@@ -304,8 +304,8 @@ body {
 }
 
 .icono_scout{
-    width: 40px;
-    height: 40px;
+    width: 23px;
+    height: 23px;
     border-radius: 20px;
     margin-right: 10px;
     border:2px solid green;
@@ -330,4 +330,15 @@ body {
     color: black;
     padding: 30px;
     background-color: rgba(255,255,255,0.7);
+}
+.bolita_not{
+        position: relative;
+    left: -10px;
+    border-radius: 20px;
+    background-color: red;
+    width: 13px;
+    height: 13px;
+    font-size: 9px;
+    display: inline-block;
+    top: 5px;
 }

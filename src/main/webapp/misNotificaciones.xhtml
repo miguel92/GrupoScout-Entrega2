@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition template="templates/mainLayout.xhtml">
+        <ui:define name="title">
+            Notificaciones
+        </ui:define>
+        <ui:define name="content">
+            <div class="row">
+                <div class="col-md-2">
+                    <ui:include src="templates/lateralMenu.xhtml"/> 
+                </div>
+                <div class="col-md-10">
+                    <h1>Notificaciones</h1>
+                    <div class="offset-md-2 col-md-8 caja_comentario">
+                        <h:outputText value="#" ></h:outputText>
+                        <div class="cab_comentarios"> <i class="far fa-sticky-note" style="margin-right: 5px"></i>
+                            Dia 
+                            <strong><h:outputText value="#{com.getFecha()}"></h:outputText></strong> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</html>

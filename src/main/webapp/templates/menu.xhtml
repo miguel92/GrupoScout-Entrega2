@@ -27,14 +27,6 @@
                             </h:form>
                         </div>
                     </li>
-                    <!-- <li class="nav-item">
-                         <a id="eventos" class="nav-link" href="eventos.xhtml"> <i class="far fa-calendar" style="margin-right: 10px"></i>Mis Eventos</a>
-                     </li>-->
-                    <!-- <c:if test="#{!empty controlAutorizacion.socio}">
-                         <li class="nav-item">
-                             <h:link id="misdatos" class="nav-link" outcome="datosUsuario.xhtml"><i class="fas fa-user" style="margin-right: 10px"></i> Mis Datos</h:link>
-                         </li>
-                     </c:if>-->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-people-carry" style="margin-right: 10px"></i> Nuestro Grupo
@@ -49,40 +41,62 @@
 
                 </ul>
                 <c:if test="#{empty controlAutorizacion.socio}">
-                    <form class="offset-md-2">
-                        <button type="button" class="btn bg-scout btn_menus" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-user"></i> Login</button>
-                        <!-- <button class="btn bg-scout my-2 my-sm-0 btn_menus" type="submit"><i class="fas fa-sign-in-alt"></i> Registrarse</button>-->
-                    </form>
+                    <ul class="navbar-nav text-center">
+                        <li class="nav-item">
+                            <form>
+                                <button type="button" class="btn bg-scout btn_menus" data-toggle="modal" data-target="#exampleModalCenter"> <i class="fas fa-user"></i> Login</button>
+                            </form>
+                        </li>
+                    </ul>
                 </c:if>
                 <c:if test="#{!empty controlAutorizacion.socio}">
-
-                    <h:form>
-                        <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT' || controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
-                            <h:commandLink action="indexAdmin.xhtml" class="float-right" style="margin-right: 10px;"><i class="fab fa-whmcs"></i> <strong>Administrar</strong></h:commandLink>
-                        </c:if>
-                    </h:form>
-                    <h:form a:action="datosUsuario.xhtml">
-                        <h:commandLink action="datosUsuario.xhtml" style="margin-right: 10px; text-decoration: none; font-weight: bold;">                    
+                    <ul class="navbar-nav text-center">
+                        <h:form>
                             <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT' || controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
-                                <img style="background-color: white" class="icono_scout" src="resources/icons/admin.png"/>
+                                <li class="nav-item">
+                                    <h:commandLink class="nav-link" action="indexAdmin.xhtml" style="margin-right: 10px;"><i class="fab fa-whmcs"></i> <strong>Administrar</strong></h:commandLink>
+                                </li>
                             </c:if>
-                            <c:if test="#{controlAutorizacion.socio.getPerfil() != 'SCOUT' and controlAutorizacion.socio.getPerfil() != 'ROOT'}">
-                                <img class="icono_scout" src="resources/icons/#{controlAutorizacion.socio.getSeccion().getNombre()}.png"/>
-                            </c:if>
-                            <c:if test="#{!empty controlAutorizacion.socio.getNombre()}">
-                                <h:outputText value="#{controlAutorizacion.socio.getNombre()}" style="margin-right: 3px;"></h:outputText> 
-                                <c:if test="#{!empty controlAutorizacion.socio.getApellidos()}">
-                                    <h:outputText value="#{controlAutorizacion.socio.getApellidos()}"></h:outputText>
+                        </h:form>
+                        <h:form a:action="datosUsuario.xhtml">
+                            <li class="nav-item">
+                                <h:commandLink  class="nav-link" action="datosUsuario.xhtml" style="font-weight: bold">                    
+                                    <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT' || controlAutorizacion.socio.getPerfil() == 'SCOUT'}">
+                                        <img style="background-color: white" class="icono_scout" src="resources/icons/admin.png"/>
+                                    </c:if>
+                                    <c:if test="#{controlAutorizacion.socio.getPerfil() != 'SCOUT' and controlAutorizacion.socio.getPerfil() != 'ROOT'}">
+                                        <img class="icono_scout" src="resources/icons/#{controlAutorizacion.socio.getSeccion().getNombre()}.png"/>
+                                    </c:if>
+                                    <c:if test="#{!empty controlAutorizacion.socio.getNombre()}">
+                                        <h:outputText value="#{controlAutorizacion.socio.getNombre()}" style="margin-right: 3px;"></h:outputText> 
+                                        <c:if test="#{!empty controlAutorizacion.socio.getApellidos()}">
+                                            <h:outputText value="#{controlAutorizacion.socio.getApellidos()}"></h:outputText>
+                                        </c:if>
+                                    </c:if>
+                                    <c:if test="#{empty controlAutorizacion.socio.getNombre()}">
+                                        <h:outputText value="#{controlAutorizacion.socio.getEmail()}"></h:outputText>
+                                    </c:if>
+                                </h:commandLink>
+                            </li>
+                        </h:form>
+
+                        <li class="nav-item" style="padding-top: 22px;">
+                            <h:form a:action="misNotificaciones.xhtml">
+                                <h:commandLink action="misNotificaciones.xhtml" style="margin-left: 20px; text-decoration: none">
+                                    <i class="fas fa-bell"></i>
+                                <c:if test="#{notificacionesBB.noLeidas >0}">
+                                    <h:outputText class="bolita_not" value="#{notificacionesBB.noLeidas}"></h:outputText>
                                 </c:if>
-                            </c:if>
-                            <c:if test="#{empty controlAutorizacion.socio.getNombre()}">
-                                <h:outputText value="#{controlAutorizacion.socio.getEmail()}"></h:outputText>
-                            </c:if>
-                        </h:commandLink>
-                    </h:form>
-                    <h:form>
-                        <h:commandLink action="#{controlAutorizacion.logout()}" class="float-right" style="margin-left: 20px;"><i class="fas fa-sign-out-alt"></i></h:commandLink>
-                    </h:form>
+                                </h:commandLink>
+                            </h:form>
+                        </li>
+                        <li class="nav-item" style="padding-top: 22px;">
+                            <h:form>
+                                <h:commandLink action="#{controlAutorizacion.logout()}" style="margin-left: 20px;"><i class="fas fa-sign-out-alt"></i></h:commandLink>
+                            </h:form>
+                        </li>
+                        
+                    </ul>
                 </c:if>
             </div>
 

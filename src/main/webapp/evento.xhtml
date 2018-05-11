@@ -45,25 +45,41 @@
                                 <h:form id="formEditCom#{com.getId_comentario()}">
                                     <h:inputTextarea value="#{com.texto}" class="textAreaCom d-none" id="idComentarioTexto#{com.getId_comentario()}"></h:inputTextarea>
                                     <h:commandLink action="#{comentariosBB.editarCom()}" class="btn btn-primary btn_comentar d-none" id="guardarComentario#{com.getId_comentario()}">Guardar <i class="fas fa-comment" style="margin-left: 5px"></i></h:commandLink>
-                                
-                            
-                            <hr ></hr>
 
-                            <div class="cab_comentarios"> <i class="far fa-user-circle" style="margin-right: 5px"></i> Escrito por <strong><h:outputText value="#{com.getSocio().getNombre()}"></h:outputText></strong> el dia <strong><h:outputText value="#{com.getFecha()}"></h:outputText></strong> 
-                                <a href="#" class="btn_editarCom" id="editarCom#{com.id_comentario}"><i style="margin-left:10px" class="fas fa-edit"></i></a>
-                               
-                                <h:commandLink action="#{comentariosBB.borrarCom(com)}"><i style="margin-left:10px" class="fas fa-trash"></i></h:commandLink>
-                                 
-                            </div>
-                           </h:form>
-                           </c:if>
+
+                                    <hr ></hr>
+
+                                    <div class="cab_comentarios"> <i class="far fa-user-circle" style="margin-right: 5px"></i> Escrito por 
+                                        <c:if test="#{empty com.socio.nombre}">
+                                            <strong><h:outputText value="#{com.socio.email}"></h:outputText></strong> 
+                                        </c:if>
+                                        <c:if test="#{!empty com.socio.nombre}">
+                                            <strong><h:outputText value="#{com.socio.nombre}"></h:outputText> <h:outputText value="#{com.socio.apellidos}" style="margin-left:5p;"></h:outputText></strong> 
+                                        </c:if>
+                                        el dia 
+                                        <strong><h:outputText value="#{com.getFecha()}"></h:outputText></strong> 
+                                        <a href="#" class="btn_editarCom" id="editarCom#{com.id_comentario}"><i style="margin-left:10px" class="fas fa-edit"></i></a>
+                                        <h:commandLink action="#{comentariosBB.borrarCom(com)}"><i style="margin-left:10px" class="fas fa-trash"></i></h:commandLink>
+                                    </div>
+                                </h:form>
+                            </c:if>
                             <c:if test="#{!empty controlAutorizacion.socio.id_Socio and com.socio.id_Socio != controlAutorizacion.socio.id_Socio and controlAutorizacion.socio.perfil != 'ROOT'|| empty controlAutorizacion.socio }">
                                 <hr ></hr>
-                                <div class="cab_comentarios"> <i class="far fa-user-circle" style="margin-right: 5px"></i> Escrito por <strong><h:outputText value="#{com.getSocio().getNombre()}"></h:outputText></strong> el dia <strong><h:outputText value="#{com.getFecha()}"></h:outputText></strong> </div>
+                                <div class="cab_comentarios"> 
+                                    <i class="far fa-user-circle" style="margin-right: 5px"></i> Escrito por 
+                                    <c:if test="#{empty com.socio.nombre}">
+                                        <strong><h:outputText value="#{com.socio.email}"></h:outputText></strong> 
+                                    </c:if>
+                                    <c:if test="#{!empty com.socio.nombre}">
+                                        <strong><h:outputText value="#{com.socio.nombre}"></h:outputText> <h:outputText value="#{com.socio.apellidos}" style="margin-left:5p;"></h:outputText></strong> 
+                                    </c:if>
+                                    el dia 
+                                    <strong><h:outputText value="#{com.fecha}"></h:outputText></strong> 
+                                </div>
 
                             </c:if>
-                            
-                               
+
+
                         </div>
                     </c:forEach>
                     <c:if test="#{!empty controlAutorizacion.socio}">
