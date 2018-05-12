@@ -88,11 +88,9 @@ public class eventosBB implements Serializable{
         evento1.setFecha(Date.valueOf("2018-09-13"));
         evento1.setImagen("resources/images/pesca.jpg");
         evento1.setSeccion(seccion);
-<<<<<<< HEAD
-=======
         evento1.setAsistentes(asistentes);
         evento1.setInscritos(inscritos);
->>>>>>> origin/Ignacio
+
         eventos.add(evento1);
         
         Evento evento2 = new Evento();
@@ -104,12 +102,9 @@ public class eventosBB implements Serializable{
         evento2.setFecha(Date.valueOf("2018-07-09"));
         evento2.setImagen("resources/images/pesca.jpg");
         evento2.setSeccion(seccion);
-<<<<<<< HEAD
-
-=======
         evento2.setAsistentes(asistentes);
         evento2.setInscritos(inscritos);
->>>>>>> origin/Ignacio
+
         eventos.add(evento2);
     }
 

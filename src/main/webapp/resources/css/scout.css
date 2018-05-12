@@ -294,7 +294,7 @@ body {
     border: 2px black solid;
 }
 .cab_comentarios{
-        color: lightsteelblue;
+    color: lightsteelblue;
 }
 .caja_comentario{
     border-left: 2px solid #622599;
@@ -325,7 +325,7 @@ body {
     background-color: rgba(33,33,33,0.2);
 }
 .panel_seccion {
-        border-radius: 0px 45px !important;
+    border-radius: 0px 45px !important;
     box-shadow: 8px 10px #888888;
     padding:0px;
     background-position: center;
@@ -343,7 +343,7 @@ body {
     background-color: rgba(255,255,255,0.7);
 }
 .bolita_not{
-        position: relative;
+    position: relative;
     left: -10px;
     border-radius: 20px;
     background-color: red;
@@ -364,4 +364,16 @@ body {
     .icono_noti{
         margin:0 auto !important;
     }
+}
+
+.noti_nombre{
+    width: 330px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.alert_notif{
+    color:darkgray;
+    font-style: italic;
+    padding-left: 20px;
 }
