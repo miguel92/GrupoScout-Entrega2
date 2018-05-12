@@ -13,21 +13,96 @@
         <ui:define name="content">
             <div class="row">
                 <div class="col-md-2">
-                    <ui:include src="templates/lateralMenu.xhtml"/> 
+                    <div class="list-group-flush lista_lateral">
+                        <a id="lateraldatosUsuario" href="datosUsuario.xhtml" class="list-group-item list-group-item-action lateraldatosUsuario">Mis Datos</a>
+                        <a id="lateralmisDocumentos" href="misDocumentos.xhtml" class="list-group-item list-group-item-action lateralmisDocumentos">Mis Documentos</a>
+                        <h:form a:action="misNotificaciones.xhtml" id="formNotificacion">
+                            <h:commandLink id="lateralmisNotificaciones" action="#{notificacionesBB.irNotif()}" class="list-group-item list-group-item-action lateralmisNotificaciones active">Notificaciones</h:commandLink>
+                        </h:form>
+                    </div>
                 </div>
                 <div class="col-md-10">
-                    <h1>Notificaciones</h1>
-                    
-                        <c:forEach items="#{notificacionesBB.notifEventos}" var="item">
+                    <h1>Notificaciones Nuevas</h1>
+                    <c:forEach items="#{notificacionesBB.notifEventos}" var="item">
+
+                        <c:if test="#{item.estado == 'False'}">
                             <div class="offset-md-2 col-md-9 caja_comentario">
-                             <div class="cab_comentarios"> <i class="far fa-sticky-note" style="margin-right: 5px"></i> 
-                               <strong><h:outputText value="#{item.evento.nombre}"></h:outputText></strong><br></br>
-                               <strong><h:outputText value="#{item.evento.descripcion}"></h:outputText></strong><br></br>
-                               <strong>Fecha del evento: <h:outputText value="#{item.evento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
-                               <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                                <i class="fas fa-calendar-alt" style="margin-right: 5px"></i> 
+                                
+                                <h:outputText value="#{item.evento.nombre}" style="font-weight: bold"></h:outputText>
+                                <h:form>
+                                    <h:commandLink action="#{notificacionesBB.marcarLeidoEvento(item)}" class ="float-right"><i class="far fa-eye-slash"></i></h:commandLink>
+                                <h:commandLink action="#{notificacionesBB.borrarNotiEvento(item)}" class ="float-right"><i class="far fa-trash-alt"></i></h:commandLink>
+                                </h:form>
+                                <h:outputText value="#{item.evento.descripcion}"></h:outputText><br></br>
+                                <hr></hr>
+                                <div class="cab_comentarios"> 
+                                    <strong>Fecha del evento: <h:outputText value="#{item.evento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
+                                    <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                                </div>
                             </div>
+                            
+                        </c:if>
+                    </c:forEach>
+
+                    <c:forEach items="#{notificacionesBB.notifDocs}" var="item">
+                        <c:if test="#{item.estado == 'False'}">
+                            <div class="offset-md-2 col-md-9 caja_comentario">
+                                <i class="fas fa-file-alt"> </i>
+                                <h:outputText value="#{item.documento.nombre}" style="font-weight: bold"></h:outputText><br></br>
+                                <h:outputText value="#{item.documento.enlace}"></h:outputText><br></br>
+                                <h:form>
+                                    <h:commandLink action="#{notificacionesBB.marcarLeidoDoc(item)}" class ="float-right"><i class="far fa-eye-slash"></i></h:commandLink>
+                                <h:commandLink action="#{notificacionesBB.borrarNotiDoc(item)}" class ="float-right"><i class="far fa-trash-alt"></i></h:commandLink>
+                                </h:form>
+                                <hr></hr>
+                                <div class="cab_comentarios"> 
+                                    <strong>Fecha del documento: <h:outputText value="#{item.documento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
+                                    <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                                </div>
                             </div>
-                        </c:forEach>
+                        </c:if>
+                    </c:forEach>
+
+                    <h1>Notificaciones Leidas</h1>
+                    <c:forEach items="#{notificacionesBB.notifEventos}" var="item">
+                        <c:if test="#{item.estado == 'True'}">
+                            <div class="offset-md-2 col-md-9 caja_comentario">
+                                <i class="fas fa-calendar-alt" style="margin-right: 5px"></i> 
+                                <h:outputText value="#{item.evento.nombre}" style="font-weight: bold"></h:outputText><br></br>
+                                <h:form>
+                                
+                                <h:commandLink action="#{notificacionesBB.borrarNotiEvento(item)}" class ="float-right"><i class="far fa-trash-alt"></i></h:commandLink>
+                                </h:form>
+                                <h:outputText value="#{item.evento.descripcion}"></h:outputText><br></br>
+                                <hr></hr>
+                                
+                                <div class="cab_comentarios"> 
+                                    <strong>Fecha del evento: <h:outputText value="#{item.evento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
+                                    <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                                </div>
+                            </div>
+                        </c:if>
+                    </c:forEach>
+
+                    <c:forEach items="#{notificacionesBB.notifDocs}" var="item">
+                        <c:if test="#{item.estado == 'True'}">
+                            <div class="offset-md-2 col-md-9 caja_comentario">
+                                <i class="fas fa-file-alt"> </i>
+                                <h:outputText value="#{item.documento.nombre}" style="font-weight: bold"></h:outputText><br></br>
+                                <h:form>
+                                
+                                <h:commandLink action="#{notificacionesBB.borrarNotiDoc(item)}" class ="float-right"><i class="far fa-trash-alt"></i></h:commandLink>
+                                </h:form>
+                                <h:outputText value="#{item.documento.enlace}"></h:outputText><br></br>
+                                <hr></hr>
+                                <div class="cab_comentarios"> 
+                                    <strong>Fecha del documento: <h:outputText value="#{item.documento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
+                                    <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                                </div>
+                            </div>
+                        </c:if>
+                    </c:forEach>
                 </div>
             </div>
         </ui:define>

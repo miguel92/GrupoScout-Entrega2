@@ -24,6 +24,7 @@ function lateralActivo() {
     url = $(location).attr('pathname');
     indice = url.lastIndexOf("/");
     cadena = url.substring(indice + 1, url.length - 6);
+    
     $("#lateral" + cadena).toggleClass("active");
 }
 function editarComentarioEvt(){

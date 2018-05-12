@@ -81,9 +81,10 @@
                         </h:form>
 
                        <li class="nav-item" style="padding-top: 22px;">
-                            <h:form a:action="misNotificaciones.xhtml">
-                                <h:commandLink action="misNotificaciones.xhtml" class="icono_noti">
-                                    <i class="fas fa-bell"></i>
+                            <h:form>
+                                <h:commandLink action="#{notificacionesBB.irNotif()}" class="icono_noti">
+                                
+                                <i class="fas fa-bell"></i>
                                 <c:if test="#{notificacionesBB.noLeidas >0}">
                                     <h:outputText class="bolita_not" value="#{notificacionesBB.noLeidas}"></h:outputText>
                                 </c:if>
