@@ -67,11 +67,11 @@ public class seccionesAdminBB implements Serializable{
         socios1.add(socio2);
         
         List<Socio> socios2=new ArrayList<Socio>();
-        Socio socios3=new Socio();
-        socios3.setId_Socio(Long.parseLong("3"));
-        socios3.setNombre("Socio 3");
-        socio2.setApellidos("McDonalds");
-        socios2.add(socios3);
+        Socio socio3=new Socio();
+        socio3.setId_Socio(Long.parseLong("3"));
+        socio3.setNombre("Socio 3");
+        socio3.setApellidos("McDonalds");
+        socios2.add(socio3);
         
         secciones = new ArrayList<Seccion>();
         Seccion seccion1 = new Seccion();

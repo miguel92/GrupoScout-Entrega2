@@ -7,64 +7,62 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:composition template="templates/mainAdmin.xhtml">
         <ui:define name="title">
-            Lista de Eventos
+            Lista de Ingresos y Gastos
         </ui:define>
         <ui:define name="titulo_modulo">
-            Lista de eventos
+            Lista de ingresos y gastos
         </ui:define>
         <ui:define name="contenido">
             <h:form style="min-height: 55px">
                 <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT'}">
-                    <h:commandLink action="#{eventosBB.newEvento()}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Crear</h:commandLink>
+                    <h:commandLink action="#{transaccionesBB.newTransaccion()}" class="btn btn-success float-right"><i class="fas fa-plus"></i> Crear</h:commandLink>
                 </c:if>
                     
             </h:form>
 
-            <h:dataTable id="eventoLista" value="#{eventosBB.getEventos()}" var="even" class="table">                
+            <h:dataTable id="eventoLista" value="#{transaccionesBB.getTransacciones()}" var="tran" class="table">                
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Identificador"/>
                     </f:facet>
-                    <h:outputText value="#{even.id_evento}"/>
+                    <h:outputText value="#{tran.id_Transaccion}"/>
                 </h:column>
-
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Nombre"/>
+                        <h:outputText value="Motivo"/>
                     </f:facet>
-                    <h:outputText value="#{even.nombre}"/>
+                    <h:outputText value="#{tran.concepto}"/>
                 </h:column>
-
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Socio: Nombre"/>
+                    </f:facet>
+                    <h:outputText value="#{tran.socio.nombre}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Socio: Apellidos"/>
+                    </f:facet>
+                    <h:outputText value="#{tran.socio.apellidos}"/>
+                </h:column>
+                
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Acciones"/>
                     </f:facet>
                     <h:form>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'SCOUT' ||controlAutorizacion.socio.getPerfil() == 'ROOT'}">
-                            <h:commandLink action="#{eventosBB.readEvento(even)}"><i class="fas fa-eye"></i></h:commandLink>
+                            <h:commandLink action="#{transaccionesBB.readTransaccion(tran)}"><i class="fas fa-eye"></i></h:commandLink>
                             &nbsp;
                         </c:if>
                         <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT'}">
-                            <h:commandLink action="#{eventosBB.updateEvento(even)}"><i class="fas fa-edit"></i></h:commandLink>
+                            <h:commandLink action="#{transaccionesBB.updateTransaccion(tran)}"><i class="fas fa-edit"></i></h:commandLink>
                             &nbsp;
-                            <h:commandLink action="#{eventosBB.deleteEvento(even)}"><i class="far fa-trash-alt"></i></h:commandLink>
+                            <h:commandLink action="#{transaccionesBB.deleteTransaccion(tran)}"><i class="far fa-trash-alt"></i></h:commandLink>
+                            &nbsp;
                         </c:if>
                     </h:form>
                 </h:column>
-                <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT'}">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Descargas: Asistentes, Inscritos"/>
-                        </f:facet>
-                        <h:form>
-                                <a href="resources/Asistentes.xlsx" onclick="#{eventosBB.descargaEvento(even,0)}" download="#{even.nombre}Asistentes.xlsx"><i class="float-center fas fa-download"></i></a>
-                                &nbsp;
-                                <a href="resources/Inscritos.xlsx" onclick="#{eventosBB.descargaEvento(even,1)}" download="#{even.nombre}Inscritos.xlsx"><i class="float-center fas fa-download"></i></a>
-                        </h:form>
-                    </h:column>
-                </c:if>
-                
-                
             </h:dataTable>
         </ui:define>
     </ui:composition>

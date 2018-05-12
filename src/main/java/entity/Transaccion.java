@@ -37,7 +37,7 @@ public class Transaccion implements Serializable {
     private Date fecha;
     
     @Column(nullable=false,length=100)
-    private Integer importe;
+    private Float importe;
     
     
     @ManyToOne
@@ -67,11 +67,11 @@ public class Transaccion implements Serializable {
         this.fecha = fecha;
     }
 
-    public Integer getImporte() {
+    public Float getImporte() {
         return importe;
     }
 
-    public void setImporte(Integer importe) {
+    public void setImporte(Float importe) {
         this.importe = importe;
     }
 

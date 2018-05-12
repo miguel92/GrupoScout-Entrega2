@@ -40,11 +40,22 @@
                                 </h:form>    
                             </div>
                             <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Cuotas </span></a> 
+<<<<<<< HEAD
                             <div class="collapse" id="menu3" data-parent="#sidebar">
                                 <a href="cuotasLista.xhtml" class="list-group-item" data-parent="#menu3">Lista de Cuotas</a>
                                 <a href="cuotasCrear.xhtml" class="list-group-item" data-parent="#menu3">Crear Cuota</a>
                             </div>
                             <a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Ingresos y gastos   </span></a> 
+=======
+                            <a href="#menu4" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Ingresos y gastos   </span></a>
+                            <div class="collapse" id="menu4" data-parent="#sidebar">
+                                <a href="listarTransacciones.xhtml" class="list-group-item" data-parent="#menu4">Lista de Ingresos y Gastos</a>
+                                <h:form>
+                                    <h:commandLink action="#{transaccionesBB.newTransaccion()}" class="list-group-item" a:data-parent="#menu4">Crear Ingreso o Gasto</h:commandLink>
+                                </h:form>    
+                            </div>
+                            
+>>>>>>> origin/Ignacio
                             <a href="#menu5" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fas fa-list-ul"></i> <span class="d-none d-md-inline">Documentos   </span></a> 
                             <div class="collapse" id="menu5" data-parent="#sidebar">
                                 <a href="documentosLista.xhtml" class="list-group-item" data-parent="#menu5">Documentos Educandos</a>
