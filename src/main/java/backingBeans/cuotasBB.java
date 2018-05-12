@@ -28,15 +28,15 @@ public class cuotasBB implements Serializable{
         cuotas = new ArrayList<Cuota>();
         Cuota cuota1 = new Cuota();
         cuota1.setId_Cuota(sigId++);
-        cuota1.setDescripcion("La Cifuentes lo paga todo, tranquilos");
-        cuota1.setImporte(1000);
-        cuota1.setNombre("Ta tó pagao");
+        cuota1.setDescripcion("Cuota anual para Educandos");
+        cuota1.setImporte(39);
+        cuota1.setNombre("Educando");
         cuotas.add(cuota1);
         Cuota cuota2 = new Cuota();
         cuota2.setId_Cuota(sigId++);
-        cuota2.setDescripcion("Esto lo paga todo el Montoro, con su tarjetita BLACK");
-        cuota2.setImporte(3500);
-        cuota2.setNombre("Los blacks");
+        cuota2.setDescripcion("Cuota anual para Scouters");
+        cuota2.setImporte(25);
+        cuota2.setNombre("Scouter");
         cuotas.add(cuota2);
     }
     
