@@ -16,6 +16,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,12 +31,23 @@ public class Notificacion_Documento implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_not_documento",length=30, nullable=false)
     private Long id_not_documento;
+    @Temporal(TemporalType.DATE)
+    @Column(nullable=false)
+    private Date fechaNotificacion;
     @Column(name="Estado", length=10,nullable=false)
     private String estado;
     @ManyToOne
     private Socio socio;
     @ManyToOne
     private Documento documento;
+
+    public Date getFechaNotificacion() {
+        return fechaNotificacion;
+    }
+
+    public void setFechaNotificacion(Date fechaNotificacion) {
+        this.fechaNotificacion = fechaNotificacion;
+    }
     
     
     public Long getId_not_documento() {
