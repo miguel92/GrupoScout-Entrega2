@@ -17,13 +17,17 @@
                 </div>
                 <div class="col-md-10">
                     <h1>Notificaciones</h1>
-                    <div class="offset-md-2 col-md-8 caja_comentario">
-                        <h:outputText value="#" ></h:outputText>
-                        <div class="cab_comentarios"> <i class="far fa-sticky-note" style="margin-right: 5px"></i>
-                            Dia 
-                            <strong><h:outputText value="#{com.getFecha()}"></h:outputText></strong> 
-                        </div>
-                    </div>
+                    
+                        <c:forEach items="#{notificacionesBB.notifEventos}" var="item">
+                            <div class="offset-md-2 col-md-9 caja_comentario">
+                             <div class="cab_comentarios"> <i class="far fa-sticky-note" style="margin-right: 5px"></i> 
+                               <strong><h:outputText value="#{item.evento.nombre}"></h:outputText></strong><br></br>
+                               <strong><h:outputText value="#{item.evento.descripcion}"></h:outputText></strong><br></br>
+                               <strong>Fecha del evento: <h:outputText value="#{item.evento.fecha}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br>
+                               <strong>Fecha de notificacion: <h:outputText value="#{item.fechaNotificacion}"><f:convertDateTime pattern="dd-MM-yyyy, hh:mm:ss"/></h:outputText></strong><br></br> 
+                            </div>
+                            </div>
+                        </c:forEach>
                 </div>
             </div>
         </ui:define>

@@ -80,9 +80,9 @@
                             </li>
                         </h:form>
 
-                        <li class="nav-item" style="padding-top: 22px;">
+                       <li class="nav-item" style="padding-top: 22px;">
                             <h:form a:action="misNotificaciones.xhtml">
-                                <h:commandLink action="misNotificaciones.xhtml" style="margin-left: 20px; text-decoration: none">
+                                <h:commandLink action="misNotificaciones.xhtml" class="icono_noti">
                                     <i class="fas fa-bell"></i>
                                 <c:if test="#{notificacionesBB.noLeidas >0}">
                                     <h:outputText class="bolita_not" value="#{notificacionesBB.noLeidas}"></h:outputText>
@@ -92,7 +92,7 @@
                         </li>
                         <li class="nav-item" style="padding-top: 22px;">
                             <h:form>
-                                <h:commandLink action="#{controlAutorizacion.logout()}" style="margin-left: 20px;"><i class="fas fa-sign-out-alt"></i></h:commandLink>
+                                <h:commandLink action="#{controlAutorizacion.logout()}" class="icono_salir"><i class="fas fa-sign-out-alt"></i></h:commandLink>
                             </h:form>
                         </li>
                         

@@ -19,9 +19,15 @@
                     <f:facet name="header">
                         <h:outputText value="Identificador ASDE"/>
                     </f:facet>
-                    <h:outputText value="#{doc.id_documento}"/>
+                    <h:outputText value="#{doc.socio.id_Socio}"/>
                 </h:column>
                 
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="ID Documento"/>
+                    </f:facet>
+                    <h:outputText value="#{doc.id_documento}"/>
+                </h:column>
                
                 <h:column>
                     <f:facet name="header">
@@ -36,19 +42,19 @@
                     </f:facet>
                     <h:outputText value="#{doc.tipo}"/>
                 </h:column>
-                
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Enlace"/>
-                    </f:facet>
-                    <h:outputText value="#{doc.enlace}"/>
-                </h:column>
+               
                 
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Fecha"/>
                     </f:facet>
                     <h:outputText value="#{doc.fecha}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Estado"/>
+                    </f:facet>
+                    <h:outputText value="#{doc.estado}"/>
                 </h:column>
                 
                 <h:column>
@@ -59,16 +65,23 @@
                         <!--<h:commandLink action="/Users/otman/578025.png"><i class="fas fa-download"></i></h:commandLink>-->
                         <a href="#{misDocs.getEnlace(doc)}" download="Documento descarga"><i class="fas fa-download"></i></a>
                         &nbsp;
-                        
+                        <c:if test="#{controlAutorizacion.socio.getPerfil() == 'ROOT' }">
                         <a style="color: #847BFF;cursor:pointer" data-toggle="modal" data-target="#modalFichero"><i class="fas fa-edit"></i></a>
                         &nbsp;
-                        <h:commandLink action="#{misDocs.borrarDoc()}"><i class="far fa-trash-alt"></i></h:commandLink>
+                        <h:commandLink action="#{misDocs.borrarDoc(doc)}"><i class="far fa-trash-alt"></i></h:commandLink>
                         &nbsp;
                         
+                        
+                        <h:commandLink action="#{misDocs.validarDoc(doc)}"><i class="fas fa-check-square"></i></h:commandLink>
+                        &nbsp;
+                        
+                        <h:commandLink action="#{misDocs.rechazarDoc(doc)}"><i class="fas fa-times"></i></h:commandLink>
+                        &nbsp;
+                        </c:if>
                     </h:form>
                 </h:column>
             </h:dataTable>
-            <ui:include src="templates/subirFicheroModal.xhtml" >     
+            <ui:include src="subirFicheroModal.xhtml" >     
             </ui:include>
         </ui:define>
     </ui:composition>
