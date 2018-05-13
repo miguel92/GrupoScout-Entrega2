@@ -55,5 +55,5 @@ public class ControlAutorizacion implements Serializable{
      */
     public ControlAutorizacion() {
     }
-    
+
 }

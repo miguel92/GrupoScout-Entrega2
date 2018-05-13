@@ -7,11 +7,13 @@ package backingBeans;
 
 import com.softbox.gruposantoangel.entity.Seccion;
 import com.softbox.gruposantoangel.entity.Socio;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -21,8 +23,8 @@ import javax.inject.Inject;
  * @author migue
  */
 @Named(value = "login")
-@RequestScoped
-public class Login {
+@SessionScoped
+public class Login implements Serializable {
 
     /**
      * Creates a new instance of Login
