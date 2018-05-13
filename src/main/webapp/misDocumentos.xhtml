@@ -52,7 +52,7 @@
                                     <h:outputText value="Acciones"/>
                                 </f:facet>
                                 
-                                    <a href="#{doc.getEnlace()}" download="true"><i class="fas fa-eye"></i></a>
+                                    <a href="#{doc.getEnlace()}" download="#{doc.getNombre()}"><i class="fas fa-eye"></i></a>
                                     &nbsp;
                                     <h:commandLink action="#{misDocs.borrarDoc(doc)}"><i class="far fa-trash-alt"></i></h:commandLink>
                                     &nbsp;

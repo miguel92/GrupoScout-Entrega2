@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.servlet.http.Part;
@@ -21,7 +23,7 @@ import javax.servlet.http.Part;
 @RequestScoped
 public class SubirFichero {
 	private Part uploadedFile;
-	private String folder = "./GrupoScout-Entrega2-master/src/main/webapp/resources";
+	private String folder = "C:\\files\\docs";
 
 	public Part getUploadedFile() {
 		return uploadedFile;
@@ -32,11 +34,15 @@ public class SubirFichero {
 	}
 
 	
-	public void saveFile(){
+	public void saveFile(Long idSocio){
 		
 		try (InputStream input = uploadedFile.getInputStream()) {
 			String fileName = uploadedFile.getSubmittedFileName();
-	        Files.copy(input, new File(folder, fileName).toPath());
+                        folder+="\\SC_"+idSocio.toString();
+                        Path path = Paths.get(folder);
+                        Files.createDirectories(path);
+                        File file = new File(folder, fileName);
+                        Files.copy(input, file.toPath());
 	    }
 	    catch (IOException e) {
 	        e.printStackTrace();
