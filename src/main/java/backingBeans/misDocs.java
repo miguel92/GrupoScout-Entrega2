@@ -36,7 +36,7 @@ public class misDocs implements Serializable{
         miDoc = new Documento();
         miDoc.setId_documento(nextDoc++);
         miDoc.setFecha(Date.valueOf("2018-02-19"));
-        miDoc.setEnlace("http://localhost:8080/GrupoScout-Entrega2-master/faces/Ficheros/578025.png");
+        miDoc.setEnlace("./faces/578025.png");
         miDoc.setNombre("Alergias");
         miDoc.setTipo("1");
         miDoc.setEstado(EstadoDoc.ENTREGADO);
@@ -48,7 +48,7 @@ public class misDocs implements Serializable{
         miDoc = new Documento();
         miDoc.setId_documento(nextDoc++);
         miDoc.setFecha(Date.valueOf("2017-07-19"));
-        miDoc.setEnlace("http://localhost:8080/GrupoScout-Entrega2-master/faces/Ficheros/dni.pdf");
+        miDoc.setEnlace("./faces/dni.pdf");
         miDoc.setNombre("DNI");
         miDoc.setEstado(EstadoDoc.ENTREGADO);
         miDoc.setTipo("2");

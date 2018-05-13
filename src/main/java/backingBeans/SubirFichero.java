@@ -21,7 +21,7 @@ import javax.servlet.http.Part;
 @RequestScoped
 public class SubirFichero {
 	private Part uploadedFile;
-	private String folder = "c:\\files";
+	private String folder = "./GrupoScout-Entrega2-master/src/main/webapp/resources";
 
 	public Part getUploadedFile() {
 		return uploadedFile;
